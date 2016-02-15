@@ -11,10 +11,17 @@ package projectezoologic;
  */
 public class ProjecteZoologic {
 
+    public static void Suma(){
+        int a=1;
+        int b=2;
+        System.out.println(a+b);
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        Suma();
         System.out.println("Juan");
     }
     
