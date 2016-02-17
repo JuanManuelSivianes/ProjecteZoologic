@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.zoologic.especie;
 
 import com.zoologic.aliment.Aliment;
@@ -111,14 +106,14 @@ public class Especie {
     }
     
     /**
-     * 
-     * @param nomCuidador
+     * Aquest metode afegim a l'ArrayList de LlistatCuidador el nom del cuidador.
+     * @param nomCuidador és el nom del cuidador del zoològic.
      * @return 
      */
     public boolean afegirCuidador(Cuidador nomCuidador){
         for(int i=0; i<LlistatCuidador.size();i++){
             if (LlistatCuidador.get(i).equals(nomCuidador)){
-                System.out.println("Aquest cuidador ja està a la llista");
+                System.out.println("Aquest cuidador ja està a la llista.");
                 return false;
             }
         }
@@ -126,4 +121,35 @@ public class Especie {
         return true;
     }
     
-}
+    public boolean afegirAliment(Aliment nomAliment){
+        for(int i=0;i<LlistatAliment.size();i++){
+            if (LlistatAliment.get(i).equals(nomAliment)){
+                System.out.println("Aquest aliment ja està a la llista.");
+                return false;
+            }
+        }
+        LlistatAliment.add(nomAliment);
+        return true;
+    }
+    
+    public boolean eliminarCuidador(Cuidador nomCuidador){
+        for(int i=0;i<LlistatCuidador.size();i++){
+            if (LlistatCuidador.get(i).equals(nomCuidador)){
+                LlistatCuidador.remove(nomCuidador);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean eliminarAliment(Aliment nomAliment){
+        for(int i=0;i<LlistatAliment.size();i++){
+            if (LlistatAliment.get(i).equals(nomAliment)){
+                LlistatAliment.remove(nomAliment);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+}   
