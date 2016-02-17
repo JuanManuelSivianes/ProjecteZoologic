@@ -97,9 +97,17 @@ public class Zoologic {
     }
     
     public void mostrarEspaisEspecie(Especie nomEspecie){
-        for (int i = 0; i < LlistatEspecies.size(); i++) {
-            if (LlistatEspecies.get(i).equals(nomEspecie)){
-                System.out.println(LlistatEspecies.get(i).getLlistatEspais());
+        for (Especie LlistatEspecie : LlistatEspecies) {
+            if (LlistatEspecie.equals(nomEspecie)) {
+                System.out.println(LlistatEspecie.getLlistatEspais());
+            }
+        }
+    }
+    
+    public void mostrarCuidadorsEspecie(Especie nomEspecie){
+        for(int i = 0; i < LlistatEspecies.size(); i++){
+            if(LlistatEspecies.get(i).equals(nomEspecie)){
+                System.out.println(nomEspecie.getLlistatCuidador());
             }
         }
     }

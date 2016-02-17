@@ -112,6 +112,14 @@ public class Especie {
     public ArrayList<Espai> getLlistatEspais() {
         return LlistatEspais;
     }
+
+    public ArrayList<Aliment> getLlistatAliment() {
+        return LlistatAliment;
+    }
+
+    public ArrayList<Cuidador> getLlistatCuidador() {
+        return LlistatCuidador;
+    }
     
     
     /**

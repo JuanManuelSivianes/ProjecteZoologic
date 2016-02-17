@@ -42,6 +42,7 @@ public class Proves {
         
         Zoologic marineland = new Zoologic();
         Cuidador toni = new Cuidador(000001,"Toni");
+        Cuidador paco = new Cuidador(000002,"Paco");
         
         Espai sala1 = new Espai("Sala1",TANCAT);
         Espai sala2 = new Espai("Sala2",TANCAT);
@@ -63,10 +64,14 @@ public class Proves {
         Especie gorilas = new Especie(1000,"Gorilas","GorilasMaximus","Son osos grandes");
         gorilas.afegirEspai(sala1);
         gorilas.afegirEspai(sala4);
-        
+        gorilas.afegirCuidador(toni);
+        gorilas.afegirCuidador(paco);
+         
         marineland.afegirEspecie(gorilas);
         
         marineland.mostrarEspaisEspecie(gorilas);
+        
+        marineland.mostrarCuidadorsEspecie(gorilas);
         
         
         
