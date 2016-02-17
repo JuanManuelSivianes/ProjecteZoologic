@@ -6,6 +6,7 @@
 package com.zoologic.zoo;
 
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,16 +38,22 @@ public class Proves {
         
         mono.put("Mono", simions);
         
-        System.out.println(mono.get("Mono"));
+        System.out.println(mono.get("Mono"));*/
         
+        Tasca tarea1 = new Tasca(1,"Limpiar jaula tigres.");
+        Tasca tarea2 = new Tasca(2,"Recoger bananas.");
+        tarea1.setObservacions("En simba no meja desde fa 3 dies.");
         
+        Cuidador toni = new Cuidador(000001,"Toni");
         
-        ArrayDeque<String> testerDos = new ArrayDeque<>();
-        testerDos.add("Necesitas una manzana");
-        testerDos.add("Tienes que meterla en el horno");
-        testerDos.add("Listo");
+        System.out.println(toni.afegirTasca(tarea1));
+        System.out.println(toni.afegirTasca(tarea2));
         
-        System.out.println(testerDos.size());*/
+        System.out.println(toni);
+        System.out.println(toni.getLlistatTasques());
+        System.out.println(toni.eliminarTasca(tarea2));
+        System.out.println(toni.getLlistatTasques());
+        System.out.println(toni.eliminarTasca(tarea2));
         
     }
     
