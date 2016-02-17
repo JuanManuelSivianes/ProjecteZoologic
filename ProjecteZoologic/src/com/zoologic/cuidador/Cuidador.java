@@ -63,7 +63,7 @@ public class Cuidador {
         Iterator<Tasca> it = LlistatTasques.iterator();
         while (it.hasNext()) {
             Tasca i = it.next();
-            if (i.getDescriocio().equals(nomTasca.getDescriocio())) {
+            if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
                 System.out.println("Aquesta tasca ja esta en la llista.");
                 return false;
             }
@@ -77,7 +77,7 @@ public class Cuidador {
         Iterator<Tasca> it = LlistatTasques.iterator();
         while (it.hasNext()) {
             Tasca i = it.next();
-            if (i.getDescriocio().equals(nomTasca.getDescriocio())) {
+            if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
                 LlistatTasques.remove(nomTasca);
                 return true;
             }

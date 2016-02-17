@@ -5,7 +5,9 @@
  */
 package com.zoologic.zoo;
 
+import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.exemplar.Exemplar;
 import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ public class Proves {
         System.out.println(toni.eliminarTasca(tarea2));
         System.out.println(toni.getLlistatTasques());
         System.out.println(toni.eliminarTasca(tarea2));
+        
         
     }
     
