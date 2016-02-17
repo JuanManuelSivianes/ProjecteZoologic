@@ -22,7 +22,8 @@ public class ProjecteZoologic {
     public static void main(String[] args) {
         
         Suma();
-        System.out.println("Xavi");
+        System.out.println("Juan");
+        
     }
     
 }
