@@ -18,33 +18,58 @@ public class Cuidador {
     private ArrayList<Especie> LlistatEspecies;
 
     /**
-     * Obtenim el valor assignat a l'atribut "id".
-     * @return 
+     * Obtenir el valor assignat a l'atribut "id".
+     * @return
      */
     public int getId() {
         return id;
     }
 
+    /**
+     * Assigna un valor a l'atribut "id".
+     * @param id és el codi d'identificació del cuidador.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Obtenir el valor assignat a l'atribut "nom".
+     * @return
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Assigna un valor a l'atribut "nom".
+     * @param nom és el nom del cuidador.
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayDeque<Tasca> getLlistatTasques() {
         return LlistatTasques;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Especie> getLlistatEspecies() {
         return LlistatEspecies;
     }
 
+    /**
+     * És el constructor dels atributs id i nom.
+     * @param id és el codi d'identificació del cuidador.
+     * @param nom és el nom del cuidador.
+     */
     public Cuidador(int id, String nom) {
         this.id = id;
         this.nom = nom;
@@ -52,11 +77,20 @@ public class Cuidador {
         LlistatEspecies = new ArrayList<>();
     }
 
+    /**
+     * És el mètode que retorna una cadena que representa l'objecte Cuidador.
+     * @return 
+     */
     @Override
     public String toString() {
         return "Cuidador{" + "id=" + id + ", nom=" + nom + '}';
     }
 
+    /**
+     * Aquest metode afegeix a l'ArrayList de LlistatTasques el nom de la tasca.
+     * @param nomTasca és el nom de la tasca del cuidador.
+     * @return 
+     */
     public boolean afegirTasca(Tasca nomTasca) {
 
         Iterator<Tasca> it = LlistatTasques.iterator();
@@ -71,6 +105,11 @@ public class Cuidador {
         return true;
     }
 
+    /**
+     * Aquest metode elimina a l'ArrayList de LlistatTasques el nom de la tasca.
+     * @param nomTasca és el nom de la tasca del cuidador.
+     * @return 
+     */
     public boolean eliminarTasca(Tasca nomTasca) {
 
         Iterator<Tasca> it = LlistatTasques.iterator();
@@ -85,6 +124,11 @@ public class Cuidador {
         return false;
     }
 
+    /**
+     * Aquest metode afegeix a l'ArrayList de LlistaEspecies el nom del cuidador.
+     * @param nomEspecie és el nom de l'especie que té cura un cuidador.
+     * @return 
+     */
     public boolean afegirEspecie(Especie nomEspecie) {
 
         for (int i = 0; i < LlistatEspecies.size(); i++) {
