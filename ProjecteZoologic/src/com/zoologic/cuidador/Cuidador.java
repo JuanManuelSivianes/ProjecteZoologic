@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.zoologic.cuidador;
 
 import com.zoologic.especie.Especie;
@@ -13,7 +8,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author Arsenik
+ * @author Sivi,Xavier,Jesus,Toni
  */
 public class Cuidador {
 
@@ -22,6 +17,10 @@ public class Cuidador {
     private ArrayDeque<Tasca> LlistatTasques;
     private ArrayList<Especie> LlistatEspecies;
 
+    /**
+     * Obtenim el valor assignat a l'atribut "id".
+     * @return 
+     */
     public int getId() {
         return id;
     }
