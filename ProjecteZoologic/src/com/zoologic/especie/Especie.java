@@ -2,6 +2,7 @@ package com.zoologic.especie;
 
 import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.espais.Espai;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +16,7 @@ public class Especie {
     private String descripcio;
     private ArrayList <Aliment> LlistatAliment;
     private ArrayList <Cuidador> LlistatCuidador;
+    private ArrayList <Espai> LlistatEspais;
 
     /**
      * És el Constructor dels atributs id, nomComu, nomCientific i descripcio.
@@ -30,6 +32,7 @@ public class Especie {
         this.descripcio = descripcio;
         LlistatAliment = new ArrayList<>();
         LlistatCuidador = new ArrayList<>();
+        LlistatEspais = new ArrayList<>();
     }
 
     /**
@@ -41,6 +44,7 @@ public class Especie {
         return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAliment + ", LlistatCuidador=" + LlistatCuidador + '}';
     }
 
+    
     /**
      * Obtenim el valor assignat a l'atribut "id".
      * @return codi d'idenfiticacio.
@@ -104,6 +108,19 @@ public class Especie {
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
     }
+
+    public ArrayList<Espai> getLlistatEspais() {
+        return LlistatEspais;
+    }
+
+    public ArrayList<Aliment> getLlistatAliment() {
+        return LlistatAliment;
+    }
+
+    public ArrayList<Cuidador> getLlistatCuidador() {
+        return LlistatCuidador;
+    }
+    
     
     /**
      * Aquest metode afegeix a l'ArrayList de LlistatCuidador el nom del cuidador.
@@ -164,6 +181,28 @@ public class Especie {
                 return true;
             }
         }
+        return false;
+    }
+    
+    public boolean afegirEspai(Espai nomEspai){
+        for(int i=0; i<LlistatEspais.size();i++){
+            if (LlistatEspais.get(i).equals(nomEspai)){
+                System.out.println("Aquest espai ja està a la llista.");
+                return false;
+            }
+        }
+        LlistatEspais.add(nomEspai);
+        return true;
+    }
+    
+       public boolean eliminarEspai(Espai nomEspai){
+        for(int i=0; i<LlistatEspais.size();i++){
+            if (LlistatEspais.get(i).equals(nomEspai)){
+                LlistatEspais.remove(nomEspai);
+                return true;
+            }
+        }
+           System.out.println("Aquest espai no esta en aquesta especie.");
         return false;
     }
     
