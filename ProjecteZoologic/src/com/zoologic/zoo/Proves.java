@@ -5,7 +5,9 @@
  */
 package com.zoologic.zoo;
 
+import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.exemplar.Exemplar;
 import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -40,6 +42,7 @@ public class Proves {
         
         System.out.println(marineland.afegirCuidador(toni));
         marineland.mostrarCuidadors();
+        
         
         
     }

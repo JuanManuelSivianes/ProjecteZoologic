@@ -5,7 +5,11 @@
  */
 package com.zoologic.exemplar;
 
+<<<<<<< HEAD
 import com.zoologic.especie.Especie;
+=======
+import com.zoologic.aliment.Aliment;
+>>>>>>> origin/master
 import java.util.ArrayList;
 
 /**
@@ -15,8 +19,12 @@ import java.util.ArrayList;
 public class Exemplar {
     private int id;
     private String nom;
+<<<<<<< HEAD
     private Especie nomEspecie;
     ArrayList<String> aliments = new ArrayList<>();
+=======
+    ArrayList<Aliment> LlistatAliments;
+>>>>>>> origin/master
 
     public int getId() {
         return id;
@@ -34,8 +42,8 @@ public class Exemplar {
         this.nom = nom;
     }
 
-    public ArrayList<String> getAliments() {
-        return aliments;
+    public ArrayList<Aliment> getAliments() {
+        return LlistatAliments;
     }
 
     public Especie getEspecie() {
@@ -55,7 +63,30 @@ public class Exemplar {
     @Override
     public String toString() {
         return "Exemplar{" + "id=" + id + ", nom=" + nom + ", especie="+ nomEspecie + ", aliments=" + aliments + '}';
+
     }
     
+    public boolean afegirAlimentExemplar(Aliment nomAliment){
+        for (int i = 0; i < LlistatAliments.size(); i++) {
+            if (LlistatAliments.get(i).equals(nomAliment)) {
+                System.out.println("Aquest aliment ja esta en la llista.");
+                return false;
+            }
+        }
+        LlistatAliments.add(nomAliment);
+        return true;
+    }
+    
+    public boolean eliminarAliment(Aliment nomAliment) {
+        
+        for (int i = 0; i < LlistatAliments.size(); i++) {
+            if (LlistatAliments.get(i).equals(nomAliment)) {
+                LlistatAliments.remove(nomAliment);
+                return true;
+            }
+        }
+        System.out.println("Aquest aliment no esta en la llista.");
+        return false;
+    }
     
 }

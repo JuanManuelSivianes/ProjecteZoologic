@@ -110,8 +110,8 @@ public class Especie {
     }
     
     /**
-     * Aquest metode afegim a l'ArrayList de LlistatCuidador el nom del cuidador.
-     * @param nomCuidador és el nom del cuidador del zoològic.
+     * Aquest metode afegeix a l'ArrayList de LlistatCuidador el nom del cuidador.
+     * @param nomCuidador és el nom del cuidador de l'especie.
      * @return 
      */
     public boolean afegirCuidador(Cuidador nomCuidador){
@@ -125,6 +125,11 @@ public class Especie {
         return true;
     }
     
+    /**
+     * Aquest mètode afegeix a l'ArrayList de LlistatAliment l'aliment.
+     * @param nomAliment és el nom de l'aliment de l'especie.
+     * @return 
+     */
     public boolean afegirAliment(Aliment nomAliment){
         for(int i=0;i<LlistatAliment.size();i++){
             if (LlistatAliment.get(i).equals(nomAliment)){
@@ -136,6 +141,11 @@ public class Especie {
         return true;
     }
     
+    /**
+     * Aquest mètode elimina de l'ArrayList de LlistatCuidador el nom del cuidador.
+     * @param nomCuidador és el nom del cuidador de l'especie.
+     * @return 
+     */
     public boolean eliminarCuidador(Cuidador nomCuidador){
         for(int i=0;i<LlistatCuidador.size();i++){
             if (LlistatCuidador.get(i).equals(nomCuidador)){
@@ -146,6 +156,11 @@ public class Especie {
         return false;
     }
     
+    /**
+     * Aquest mètode elimnia de l'ArrayList de LlistatAliment el nom de l'aliment.
+     * @param nomAliment és el nom de l'aliment de l'especie.
+     * @return 
+     */
     public boolean eliminarAliment(Aliment nomAliment){
         for(int i=0;i<LlistatAliment.size();i++){
             if (LlistatAliment.get(i).equals(nomAliment)){
