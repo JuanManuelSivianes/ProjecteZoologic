@@ -6,6 +6,9 @@
 package com.zoologic.zoo;
 
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.espais.Espai;
+import com.zoologic.espais.TipusEspai;
+import com.zoologic.especie.Especie;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +18,9 @@ import java.util.ArrayList;
 public class Zoologic {
 
     private ArrayList<Cuidador> LlistatCuidadors = new ArrayList<>();
+    private ArrayList<Especie> LlistatEspecies = new ArrayList<>();
+    private ArrayList<Espai> LlistatEspais = new ArrayList<>();
+    
 
     public boolean afegirCuidador(Cuidador nomCuidador) {
         for (int i = 0; i < LlistatCuidadors.size(); i++) {
@@ -41,6 +47,42 @@ public class Zoologic {
     public void mostrarCuidadors() {
         for (int i = 0; i < LlistatCuidadors.size(); i++) {
             System.out.println(LlistatCuidadors.get(i));
+        }
+    }
+
+    public boolean afegirEspecie(Especie nomEspecie) {
+        for (int i = 0; i < LlistatEspecies.size(); i++) {
+            if (LlistatEspecies.get(i).equals(nomEspecie)) {
+                System.out.println("Aquesta especie ja esta al zoologic.");
+                return false;
+            }
+        }
+        LlistatEspecies.add(nomEspecie);
+        return true;
+    }
+
+    public boolean eliminarEspecie(Especie nomEspecie) {
+        for (int i = 0; i < LlistatEspecies.size(); i++) {
+            if (LlistatEspecies.get(i).equals(nomEspecie)) {
+                LlistatEspecies.remove(nomEspecie);
+                return true;
+            }
+        }
+        System.out.println("Aquesta especie no esta al zoologic.");
+        return false;
+    }
+    
+    public void mostrarEspecies() {
+        for (int i = 0; i < LlistatEspecies.size(); i++) {
+            System.out.println(LlistatEspecies.get(i));
+        }
+    }
+    
+    public void mostraTipusEspais(TipusEspai nomEspai){
+        for(int i = 0; i < LlistatEspais.size(); i ++){
+            if(LlistatEspais.get(i).getTipus().equals(nomEspai)){
+                System.out.println(LlistatEspais.get(i).getNom());
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ public class Proves {
          * Afegir espais a una determinada especie
          */
         /*ArrayList<Espais> simions = new ArrayList<>();
-        HashMap<String,ArrayList> mono = new HashMap<>();
+        HashMap<Especie,ArrayList> mono = new HashMap<>();
         
         simions.add(Espais.TANCAT);
         simions.add(Espais.PISCINA);
