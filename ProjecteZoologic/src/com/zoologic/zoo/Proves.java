@@ -7,6 +7,8 @@ package com.zoologic.zoo;
 
 import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
+import com.zoologic.espais.Espai;
+import static com.zoologic.espais.TipusEspai.*;
 import com.zoologic.exemplar.Exemplar;
 import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
@@ -40,8 +42,22 @@ public class Proves {
         Zoologic marineland = new Zoologic();
         Cuidador toni = new Cuidador(000001,"Toni");
         
-        System.out.println(marineland.afegirCuidador(toni));
-        marineland.mostrarCuidadors();
+        Espai sala1 = new Espai("Sala1",TANCAT);
+        Espai sala2 = new Espai("Sala2",TANCAT);
+        Espai sala3 = new Espai("Sala3",TANCAT);
+        Espai sala4 = new Espai("Sala4",PISCINA);
+        
+        marineland.afegirEspais(sala1);
+        marineland.afegirEspais(sala2);
+        marineland.afegirEspais(sala3);
+        marineland.afegirEspais(sala4);
+        
+        
+        marineland.mostraTipusEspais(TANCAT);
+        
+        
+        //System.out.println(marineland.afegirCuidador(toni));
+        //marineland.mostrarCuidadors();
         
         
         

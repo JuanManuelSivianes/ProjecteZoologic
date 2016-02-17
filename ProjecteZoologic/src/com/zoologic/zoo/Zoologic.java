@@ -20,7 +20,6 @@ public class Zoologic {
     private ArrayList<Cuidador> LlistatCuidadors = new ArrayList<>();
     private ArrayList<Especie> LlistatEspecies = new ArrayList<>();
     private ArrayList<Espai> LlistatEspais = new ArrayList<>();
-    
 
     public boolean afegirCuidador(Cuidador nomCuidador) {
         for (int i = 0; i < LlistatCuidadors.size(); i++) {
@@ -71,16 +70,27 @@ public class Zoologic {
         System.out.println("Aquesta especie no esta al zoologic.");
         return false;
     }
-    
+
     public void mostrarEspecies() {
         for (int i = 0; i < LlistatEspecies.size(); i++) {
             System.out.println(LlistatEspecies.get(i));
         }
     }
-    
-    public void mostraTipusEspais(TipusEspai nomEspai){
-        for(int i = 0; i < LlistatEspais.size(); i ++){
-            if(LlistatEspais.get(i).getTipus().equals(nomEspai)){
+
+    public boolean afegirEspais(Espai nomEspai) {
+        for(int i = 0; i < LlistatEspais.size(); i++){
+            if(LlistatEspais.get(i).equals(nomEspai)){
+                System.out.println("Aquest espai ja esta a la llista.");
+                return false;
+            }
+        }
+        LlistatEspais.add(nomEspai);
+        return true;
+    }
+
+    public void mostraTipusEspais(TipusEspai nomEspai) {
+        for (int i = 0; i < LlistatEspais.size(); i++) {
+            if (LlistatEspais.get(i).getTipus().equals(nomEspai)) {
                 System.out.println(LlistatEspais.get(i).getNom());
             }
         }
