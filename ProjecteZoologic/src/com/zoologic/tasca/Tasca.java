@@ -11,7 +11,7 @@ package com.zoologic.tasca;
  */
 public class Tasca {
     private int id;
-    private String descriocio;
+    private String descripcio;
     private String observacions;
 
     public int getId() {
@@ -22,12 +22,12 @@ public class Tasca {
         this.id = id;
     }
 
-    public String getDescriocio() {
-        return descriocio;
+    public String getDescripcio() {
+        return descripcio;
     }
 
-    public void setDescriocio(String descriocio) {
-        this.descriocio = descriocio;
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 
     public String getObservacions() {
@@ -38,14 +38,14 @@ public class Tasca {
         this.observacions = observacions;
     }
 
-    public Tasca(int id, String descriocio) {
+    public Tasca(int id, String descripcio) {
         this.id = id;
-        this.descriocio = descriocio;
+        this.descripcio = descripcio;
     }
 
     @Override
     public String toString() {
-        return "Tasca{" + "id=" + id + ", descriocio=" + descriocio + ", observacions=" + observacions + '}';
+        return "Tasca{" + "id=" + id + ", descripcio=" + descripcio + ", observacions=" + observacions + '}';
     }
     
     
