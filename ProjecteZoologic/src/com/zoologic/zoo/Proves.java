@@ -9,6 +9,7 @@ import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
+import com.zoologic.especie.Especie;
 import com.zoologic.exemplar.Exemplar;
 import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
@@ -56,8 +57,17 @@ public class Proves {
         marineland.mostraTipusEspais(TANCAT);
         
         
-        //System.out.println(marineland.afegirCuidador(toni));
-        //marineland.mostrarCuidadors();
+        System.out.println(marineland.afegirCuidador(toni));
+        marineland.mostrarCuidadors();
+        
+        Especie gorilas = new Especie(1000,"Gorilas","GorilasMaximus","Son osos grandes");
+        gorilas.afegirEspai(sala1);
+        gorilas.afegirEspai(sala4);
+        
+        marineland.afegirEspecie(gorilas);
+        
+        marineland.mostrarEspaisEspecie(gorilas);
+        
         
         
         

@@ -95,4 +95,12 @@ public class Zoologic {
             }
         }
     }
+    
+    public void mostrarEspaisEspecie(Especie nomEspecie){
+        for (int i = 0; i < LlistatEspecies.size(); i++) {
+            if (LlistatEspecies.get(i).equals(nomEspecie)){
+                System.out.println(LlistatEspecies.get(i).getLlistatEspais());
+            }
+        }
+    }
 }

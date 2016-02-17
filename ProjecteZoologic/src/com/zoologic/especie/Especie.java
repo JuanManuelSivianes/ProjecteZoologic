@@ -108,6 +108,11 @@ public class Especie {
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
     }
+
+    public ArrayList<Espai> getLlistatEspais() {
+        return LlistatEspais;
+    }
+    
     
     /**
      * Aquest metode afegeix a l'ArrayList de LlistatCuidador el nom del cuidador.
