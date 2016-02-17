@@ -6,7 +6,6 @@
 package com.zoologic.aliment;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 
 /**
  *
@@ -15,7 +14,7 @@ import java.util.Deque;
 public class Aliment {
     private int id;
     private String nom;
-    Deque<String> preparacio = new ArrayDeque<>();
+    ArrayDeque<String> preparacio = new ArrayDeque<>();
 
     public int getId() {
         return id;
@@ -33,11 +32,11 @@ public class Aliment {
         this.nom = nom;
     }
 
-    public Deque<String> getPreparacio() {
+    public ArrayDeque<String> getPreparacio() {
         return preparacio;
     }
 
-    public void setPreparacio(Deque<String> preparacio) {
+    public void setPreparacio(ArrayDeque<String> preparacio) {
         this.preparacio = preparacio;
     }
 
