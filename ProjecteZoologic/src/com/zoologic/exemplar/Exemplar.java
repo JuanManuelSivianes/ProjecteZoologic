@@ -5,11 +5,8 @@
  */
 package com.zoologic.exemplar;
 
-<<<<<<< HEAD
 import com.zoologic.especie.Especie;
-=======
 import com.zoologic.aliment.Aliment;
->>>>>>> origin/master
 import java.util.ArrayList;
 
 /**
@@ -19,12 +16,8 @@ import java.util.ArrayList;
 public class Exemplar {
     private int id;
     private String nom;
-<<<<<<< HEAD
     private Especie nomEspecie;
-    ArrayList<String> aliments = new ArrayList<>();
-=======
     ArrayList<Aliment> LlistatAliments;
->>>>>>> origin/master
 
     public int getId() {
         return id;
@@ -62,8 +55,7 @@ public class Exemplar {
 
     @Override
     public String toString() {
-        return "Exemplar{" + "id=" + id + ", nom=" + nom + ", especie="+ nomEspecie + ", aliments=" + aliments + '}';
-
+        return "Exemplar{" + "id=" + id + ", nom=" + nom + ", especie="+ nomEspecie + ", aliments=" + LlistatAliments + '}';
     }
     
     public boolean afegirAlimentExemplar(Aliment nomAliment){
