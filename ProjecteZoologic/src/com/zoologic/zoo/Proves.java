@@ -40,8 +40,8 @@ public class Proves {
         Cuidador toni = new Cuidador(1,"Toni");
         Cuidador paco = new Cuidador(2,"Paco");
         
-        g.afegirCuidador(paco);
-        g.afegirCuidador(toni);
+        g.afegirCuidadorEspecie(paco);
+        g.afegirCuidadorEspecie(toni);
         
         System.out.println(g.getLlistatCuidador());
         

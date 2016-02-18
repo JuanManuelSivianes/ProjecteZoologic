@@ -112,7 +112,7 @@ public class Especie {
 
     /**
      * És el Constructor dels atributs nomComu, nomCientific i descripcio.
-     * L'atribut id es inicialtizat amb el metode incrementarContador.
+     * L'atribut id es inicialtizat amb el metode incrementarContadorEspecie.
      * Inicialitzam totes les llistes de la classe.
      *
      * @param nomComu és el nom comú de l'especie.
@@ -120,7 +120,7 @@ public class Especie {
      * @param descripcio és una breu descripció de l'especie.
      */
     public Especie(String nomComu, String nomCientific, String descripcio) {
-        this.id = Especie.incrementarContador();
+        this.id = Especie.incrementarContadorEspecie();
         this.nomComu = nomComu;
         this.nomCientific = nomCientific;
         this.descripcio = descripcio;
@@ -145,7 +145,7 @@ public class Especie {
      *
      * @return suma mil al valor actual del contador.
      */
-    public static int incrementarContador() {
+    public static int incrementarContadorEspecie() {
         return contadorEspecies = contadorEspecies + 1000;
     }
 
@@ -156,7 +156,7 @@ public class Especie {
      * @return true si l'ha pogut afegir i false si el cuidador ja estava a la
      * llista.
      */
-    public boolean afegirCuidador(Cuidador nomCuidador) {
+    public boolean afegirCuidadorEspecie(Cuidador nomCuidador) {
         for (Cuidador LlistatCuidador1 : LlistatCuidador) {
             if (LlistatCuidador1.equals(nomCuidador)) {
                 return false;
@@ -173,7 +173,7 @@ public class Especie {
      * @return true si l'ha pogut afegir i false si l'aliment ja estava a la
      * llista.
      */
-    public boolean afegirAliment(Aliment nomAliment) {
+    public boolean afegirAlimentEspecie(Aliment nomAliment) {
         for (Aliment LlistatAliment1 : LlistatAliment) {
             if (LlistatAliment1.equals(nomAliment)) {
                 return false;
@@ -189,7 +189,7 @@ public class Especie {
      * @param nomCuidador és el cuidador que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
-    public boolean eliminarCuidador(Cuidador nomCuidador) {
+    public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
         for (int i = 0; i < LlistatCuidador.size(); i++) {
             if (LlistatCuidador.get(i).equals(nomCuidador)) {
                 LlistatCuidador.remove(nomCuidador);
@@ -205,7 +205,7 @@ public class Especie {
      * @param nomAliment és l'aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
-    public boolean eliminarAliment(Aliment nomAliment) {
+    public boolean eliminarAlimentEspecie(Aliment nomAliment) {
         for (int i = 0; i < LlistatAliment.size(); i++) {
             if (LlistatAliment.get(i).equals(nomAliment)) {
                 LlistatAliment.remove(nomAliment);
@@ -222,7 +222,7 @@ public class Especie {
      * @return true si l'ha pogut afegir i false si l'espai ja estava a la
      * llista.
      */
-    public boolean afegirEspai(Espai nomEspai) {
+    public boolean afegirEspaiEspecie(Espai nomEspai) {
         for (Espai LlistatEspai : LlistatEspais) {
             if (LlistatEspai.equals(nomEspai)) {
                 return false;
@@ -238,7 +238,7 @@ public class Especie {
      * @param nomEspai es l'espai que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
-    public boolean eliminarEspai(Espai nomEspai) {
+    public boolean eliminarEspaiEspecie(Espai nomEspai) {
         for (int i = 0; i < LlistatEspais.size(); i++) {
             if (LlistatEspais.get(i).equals(nomEspai)) {
                 LlistatEspais.remove(nomEspai);

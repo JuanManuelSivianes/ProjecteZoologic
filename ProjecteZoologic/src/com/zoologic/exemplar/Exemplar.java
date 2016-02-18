@@ -118,7 +118,7 @@ public class Exemplar {
      * @param nomAliment es l'aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
-    public boolean eliminarAliment(Aliment nomAliment) {
+    public boolean eliminarAlimentExemplar(Aliment nomAliment) {
         for (int i = 0; i < LlistatAliments.size(); i++) {
             if (LlistatAliments.get(i).equals(nomAliment)) {
                 LlistatAliments.remove(nomAliment);
