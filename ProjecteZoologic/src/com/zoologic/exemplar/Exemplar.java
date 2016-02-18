@@ -35,7 +35,7 @@ public class Exemplar {
     }
 
     /**
-     * Assignam el valor assignat a l'atribut "nom"
+     * Assignam el valor a l'atribut "nom"
      *
      * @param nom és el nom que reb l'exemplar
      */
@@ -71,9 +71,9 @@ public class Exemplar {
     }
 
     /**
-     * És el constructor dels atributs nom i nomEspecie. L'atribut id es
-     * inicialtizat amb un increment de l'atribut contador. Inicialitzam la
-     * llista de la classe.
+     * És el constructor de Exemplar amb els parametres nom i nomEspecie.
+     * L'atribut id es inicialtizat amb un increment de l'atribut contador.
+     * Inicialitzam la llista de la classe.
      *
      * @param nom és el nom que té un exemplar.
      * @param nomEspecie és el nom de l'especie que té l'exemplar.
@@ -86,9 +86,10 @@ public class Exemplar {
     }
 
     /**
-     * És el mètode que retorna una cadena que representa l'objecte Especie.
+     * És el métode que mostra la informacio completa del objecte mostrant el
+     * valors del seus atributs.
      *
-     * @return cadena que representa l'objecte.
+     * @return informacio completa del objecte.
      */
     @Override
     public String toString() {

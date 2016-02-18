@@ -10,34 +10,65 @@ package com.zoologic.espais;
  * @author Arsenik
  */
 public class Espai {
+
     private String nom;
     private TipusEspai tipus;
 
+    /**
+     * Obtenim el valor assignat a l'atribut "nom".
+     *
+     * @return nom de l'espai.
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Assignam el valor a l'atribut "nom"
+     *
+     * @param nom nom de l'espai.
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Obtenim el valor assignat a l'atribut "Tipus".
+     *
+     * @return el tipus de espai que és.
+     */
     public TipusEspai getTipus() {
         return tipus;
     }
 
+    /**
+     * Assignam el valor a l'atribut tipus.
+     *
+     * @param tipus el tipus de espai que és.
+     */
     public void setTipus(TipusEspai tipus) {
         this.tipus = tipus;
     }
 
+    /**
+     * Constructor de Espai amb els parametres nom i tipus d'espai.
+     *
+     * @param nom el nom del espai.
+     * @param tipus el tipus de espai.
+     */
     public Espai(String nom, TipusEspai tipus) {
         this.nom = nom;
         this.tipus = tipus;
     }
 
+    /**
+     * És el métode que mostra la informacio completa del objecte mostrant el
+     * valors del seus atributs.
+     *
+     * @return informacio completa del objecte.
+     */
     @Override
     public String toString() {
         return "Espai{" + "nom=" + nom + ", tipus=" + tipus + '}';
     }
-    
-    
 }

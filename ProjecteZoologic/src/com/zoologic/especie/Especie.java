@@ -111,9 +111,9 @@ public class Especie {
     }
 
     /**
-     * És el Constructor dels atributs nomComu, nomCientific i descripcio.
-     * L'atribut id es inicialtizat amb el metode incrementarContadorEspecie.
-     * Inicialitzam totes les llistes de la classe.
+     * És el Constructor de Especie amb els parametres nomComu, nomCientific i
+     * descripcio. L'atribut id es inicialtizat amb el metode
+     * incrementarContadorEspecie. Inicialitzam totes les llistes de la classe.
      *
      * @param nomComu és el nom comú de l'especie.
      * @param nomCientific és el nom científic de l'especie.
@@ -131,9 +131,10 @@ public class Especie {
     }
 
     /**
-     * És el métode que retorna una cadena que representa l'objecte Especie.
+     * És el métode que mostra la informacio completa del objecte mostrant el
+     * valors del seus atributs.
      *
-     * @return cadena que representa l'objecte.
+     * @return informacio completa del objecte.
      */
     @Override
     public String toString() {
