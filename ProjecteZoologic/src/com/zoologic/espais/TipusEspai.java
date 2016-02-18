@@ -6,9 +6,11 @@
 package com.zoologic.espais;
 
 /**
+ * Enumeracio dels tipus de espai disponibles al zoologic.
  *
- * @author Arsenik
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public enum TipusEspai {
-    TANCAT,PISCINA,AQUARI,VOLADOR
+
+    TANCAT, PISCINA, AQUARI, VOLADOR
 }

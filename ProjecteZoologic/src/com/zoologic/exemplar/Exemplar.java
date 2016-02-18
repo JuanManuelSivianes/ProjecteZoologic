@@ -5,15 +5,31 @@ import com.zoologic.aliment.Aliment;
 import java.util.ArrayList;
 
 /**
+ * Classe que conte tota la informacio del exemplars de cada especie.
  *
  * @author Sivi, Xavier, Jesus, Toni
  */
 public class Exemplar {
 
+    /**
+     * ID de l'exemplar.
+     */
     private int id;
+    /**
+     * Contador de exemplars creats.
+     */
     private static int contadorExemplars = 1;
+    /**
+     * Nom de l'exemplar.
+     */
     private String nom;
+    /**
+     * Especie a la que pertany l'exemplar.
+     */
     private Especie nomEspecie;
+    /**
+     * ArrayList del aliments de l'exemplar.
+     */
     private ArrayList<Aliment> LlistatAliments;
 
     /**

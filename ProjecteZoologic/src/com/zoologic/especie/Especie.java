@@ -6,18 +6,43 @@ import com.zoologic.espais.Espai;
 import java.util.ArrayList;
 
 /**
+ * Classe que conte tota la informacio de cada especie.
  *
  * @author Sivi, Jesus, Toni, Xavier.
  */
 public class Especie {
 
+    /**
+     * ID de la especie.
+     */
     private int id;
+    /**
+     * Contador de les especies creades.
+     */
     public static int contadorEspecies = 0;
+    /**
+     * Nom comu de la especie.
+     */
     private String nomComu;
+    /**
+     * Nom cientific de la especie.
+     */
     private String nomCientific;
+    /**
+     * Descripcio de la especie.
+     */
     private String descripcio;
+    /**
+     * Llista del aliments de la especie.
+     */
     private ArrayList<Aliment> LlistatAliment;
+    /**
+     * Llista dels cuidadors de la especie.
+     */
     private ArrayList<Cuidador> LlistatCuidador;
+    /**
+     * Llista dels espais de la especie.
+     */
     private ArrayList<Espai> LlistatEspais;
 
     /**

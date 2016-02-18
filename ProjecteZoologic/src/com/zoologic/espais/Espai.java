@@ -6,12 +6,19 @@
 package com.zoologic.espais;
 
 /**
+ * Classe que conte tota la informacio dels espais.
  *
- * @author Arsenik
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Espai {
 
+    /**
+     * Nom de l'espai.
+     */
     private String nom;
+    /**
+     * El tipus de espai que és.
+     */
     private TipusEspai tipus;
 
     /**
