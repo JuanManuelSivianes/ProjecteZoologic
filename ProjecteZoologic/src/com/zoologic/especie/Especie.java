@@ -53,7 +53,7 @@ public class Especie {
     /**
      * Obtenim el valor assignat a l'atribut "id".
      *
-     * @return codi d'idenfiticacio.
+     * @return codi d'idenfiticacio de l'especie.
      */
     public int getId() {
         return id;
