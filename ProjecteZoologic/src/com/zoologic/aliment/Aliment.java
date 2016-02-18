@@ -14,7 +14,7 @@ import java.util.ArrayDeque;
 public class Aliment {
     private int id;
     private String nom;
-    ArrayDeque<String> preparacio = new ArrayDeque<>();
+    private ArrayDeque<String> preparacio;
 
     public int getId() {
         return id;
@@ -43,6 +43,7 @@ public class Aliment {
     public Aliment(int id, String nom) {
         this.id = id;
         this.nom = nom;
+        this.preparacio = new ArrayDeque<>();
     }
 
     @Override

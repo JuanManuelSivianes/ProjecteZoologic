@@ -15,9 +15,10 @@ import java.util.ArrayList;
  */
 public class Exemplar {
     private int id;
+    private static int contadorExemplars = 1;
     private String nom;
     private Especie nomEspecie;
-    ArrayList<Aliment> LlistatAliments;
+    private ArrayList<Aliment> LlistatAliments;
 
     public int getId() {
         return id;
@@ -47,10 +48,11 @@ public class Exemplar {
         this.nomEspecie = especie;
     }    
 
-    public Exemplar(int id, String nom, Especie nomEspecie) {
-        this.id = id;
+    public Exemplar(String nom, Especie nomEspecie) {
+        this.id = contadorExemplars++;
         this.nom = nom;
         this.nomEspecie = nomEspecie;
+        this.LlistatAliments = new ArrayList<>();
     }
 
     @Override

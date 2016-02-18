@@ -10,6 +10,7 @@ import com.zoologic.espais.Espai;
 import com.zoologic.espais.TipusEspai;
 import com.zoologic.especie.Especie;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -17,14 +18,47 @@ import java.util.ArrayList;
  */
 public class Zoologic {
 
-    private ArrayList<Cuidador> LlistatCuidadors = new ArrayList<>();
-    private ArrayList<Especie> LlistatEspecies = new ArrayList<>();
-    private ArrayList<Espai> LlistatEspais = new ArrayList<>();
+    private String nomZoologic;
+    private int idZoologic;
+    private static int contadorZoologics = 1;
+    private final HashMap<Integer,Cuidador> LlistatCuidadors;
+    private final ArrayList<Especie> LlistatEspecies;
+    private final ArrayList<Espai> LlistatEspais;
 
-    public boolean afegirCuidador(Cuidador nomCuidador) {
-        for (int i = 0; i < LlistatCuidadors.size(); i++) {
-            if (LlistatCuidadors.get(i).equals(nomCuidador)) {
-                System.out.println("Aquest cuidador ja esta al zoologic.");
+    public Zoologic(String nomZoologic) {
+        this.nomZoologic = nomZoologic;
+        this.idZoologic = contadorZoologics++;
+        this.LlistatCuidadors = new HashMap<>();
+        this.LlistatEspecies = new ArrayList<>();
+        this.LlistatEspais = new ArrayList<>();
+    }
+
+    public String getNomZoologic() {
+        return nomZoologic;
+    }
+
+    public void setNomZoologic(String nomZoologic) {
+        this.nomZoologic = nomZoologic;
+    }
+
+    public int getIdZoologic() {
+        return idZoologic;
+    }
+
+    public void setIdZoologic(int idZoologic) {
+        this.idZoologic = idZoologic;
+    }
+
+    @Override
+    public String toString() {
+        return "Zoologic{" + "nomZoologic=" + nomZoologic + ", idZoologic=" + idZoologic + '}';
+    }
+
+    
+    
+    /*public boolean afegirCuidador(Cuidador nomCuidador) {
+        for (Cuidador LlistatCuidador : LlistatCuidadors) {
+            if (LlistatCuidador.equals(nomCuidador)) {
                 return false;
             }
         }
@@ -39,24 +73,22 @@ public class Zoologic {
                 return true;
             }
         }
-        System.out.println("Aquest cuidador no esta al zoologic.");
         return false;
     }
 
-    public void mostrarCuidadors() {
-        for (int i = 0; i < LlistatCuidadors.size(); i++) {
-            System.out.println(LlistatCuidadors.get(i));
-        }
+    public ArrayList mostrarCuidadors() {
+        return LlistatCuidadors;
     }
 
     public boolean afegirEspecie(Especie nomEspecie) {
         for (int i = 0; i < LlistatEspecies.size(); i++) {
             if (LlistatEspecies.get(i).equals(nomEspecie)) {
-                System.out.println("Aquesta especie ja esta al zoologic.");
                 return false;
             }
         }
         LlistatEspecies.add(nomEspecie);
+        Especie.contadorEspecies++;
+        
         return true;
     }
 
@@ -67,20 +99,16 @@ public class Zoologic {
                 return true;
             }
         }
-        System.out.println("Aquesta especie no esta al zoologic.");
         return false;
     }
 
-    public void mostrarEspecies() {
-        for (int i = 0; i < LlistatEspecies.size(); i++) {
-            System.out.println(LlistatEspecies.get(i));
-        }
+    public ArrayList mostrarEspecies() {
+        return LlistatEspecies;
     }
 
     public boolean afegirEspais(Espai nomEspai) {
         for(int i = 0; i < LlistatEspais.size(); i++){
             if(LlistatEspais.get(i).equals(nomEspai)){
-                System.out.println("Aquest espai ja esta a la llista.");
                 return false;
             }
         }
@@ -110,5 +138,5 @@ public class Zoologic {
                 System.out.println(nomEspecie.getLlistatCuidador());
             }
         }
-    }
+    }*/
 }

@@ -10,11 +10,7 @@ import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
 import com.zoologic.especie.Especie;
-import com.zoologic.exemplar.Exemplar;
-import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -27,59 +23,26 @@ public class Proves {
      */
     public static void main(String[] args) {
         
-        /**
-         * Afegir espais a una determinada especie
-         */
-        /*ArrayList<Espais> simions = new ArrayList<>();
-        HashMap<Especie,ArrayList> mono = new HashMap<>();
-        
-        simions.add(Espais.TANCAT);
-        simions.add(Espais.PISCINA);
-        
-        mono.put("Mono", simions);
-        
-        System.out.println(mono.get("Mono"));*/
-        
-        Zoologic marineland = new Zoologic();
-        Cuidador toni = new Cuidador(000001,"Toni");
-        Cuidador paco = new Cuidador(000002,"Paco");
-        
-        Espai sala1 = new Espai("Sala1",TANCAT);
-        Espai sala2 = new Espai("Sala2",TANCAT);
-        Espai sala3 = new Espai("Sala3",TANCAT);
-        Espai sala4 = new Espai("Sala4",PISCINA);
-        
-        marineland.afegirEspais(sala1);
-        marineland.afegirEspais(sala2);
-        marineland.afegirEspais(sala3);
-        marineland.afegirEspais(sala4);
+        //Creacion de un Zoologico nuevo.
+        Zoologic marineland = new Zoologic("Marineland");
+        System.out.println(marineland);
         
         
-        marineland.mostraTipusEspais(TANCAT);
+        Especie g = new Especie("b", "hjih", "jojoj");
+        Especie b = new Especie("g", "hjih", "jojoj");
         
+        //marineland.afegirEspecie(b);
+        //marineland.afegirEspecie(g);
         
-        System.out.println(marineland.afegirCuidador(toni));
-        marineland.mostrarCuidadors();
+        //System.out.println(marineland.mostrarEspecies());
         
-        Especie gorilas = new Especie(1000,"Gorilas","GorilasMaximus","Son osos grandes");
-        gorilas.afegirEspai(sala1);
-        gorilas.afegirEspai(sala4);
-        gorilas.afegirCuidador(toni);
-        gorilas.afegirCuidador(paco);
-         
-        marineland.afegirEspecie(gorilas);
+        Cuidador toni = new Cuidador(1,"Toni");
+        Cuidador paco = new Cuidador(2,"Paco");
         
-        marineland.mostrarEspaisEspecie(gorilas);
+        g.afegirCuidador(paco);
+        g.afegirCuidador(toni);
         
-        marineland.mostrarCuidadorsEspecie(gorilas);
-        
-        /**
-         * HAY QUE CAMBIAR TODOS LOS METODOS QUE DEN UN PRINT POR METODOS
-         * CON UN RETURN.
-         */
-        
-        
-        
+        System.out.println(g.getLlistatCuidador());
     }
     
 }
