@@ -141,6 +141,11 @@ public class Cuidador {
         return true;
     }
 
+    /**
+     * Aquest mètode elimina a l'ArrayList el nom de l'especie que el cuidador té cura.
+     * @param nomEspecie és el nom de l'especie que el cuidador té cura.
+     * @return 
+     */
     public boolean eliminarEspecie(Especie nomEspecie) {
         
         for (int i = 0; i < LlistatEspecies.size(); i++) {
