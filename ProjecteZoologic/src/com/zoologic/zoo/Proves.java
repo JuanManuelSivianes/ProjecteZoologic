@@ -10,6 +10,7 @@ import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
 import com.zoologic.especie.Especie;
+import com.zoologic.exemplar.Exemplar;
 import java.util.ArrayDeque;
 
 /**
@@ -43,6 +44,14 @@ public class Proves {
         g.afegirCuidador(toni);
         
         System.out.println(g.getLlistatCuidador());
+        
+        Exemplar mono1 = new Exemplar("Monito",b);
+        Exemplar mono2 = new Exemplar("Monita",b);
+        Exemplar mono3 = new Exemplar("Monitu",g);
+        
+        System.out.println(mono1);
+        System.out.println(mono2);
+        System.out.println(mono3);
     }
     
 }
