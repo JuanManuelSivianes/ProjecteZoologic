@@ -21,36 +21,6 @@ public class Especie {
     private ArrayList<Espai> LlistatEspais;
 
     /**
-     * És el Constructor dels atributs nomComu, nomCientific i descripcio.
-     *
-     * @param nomComu és el nom comú de l'especie.
-     * @param nomCientific és el nom científic de l'especie.
-     * @param descripcio és una breu descripció de l'especie. L'atribut id es
-     * inicialtizat amb el metode incrementarContador. Inicialitzam totes les
-     * llistes de la classe.
-     */
-    public Especie(String nomComu, String nomCientific, String descripcio) {
-        this.id = Especie.incrementarContador();
-        this.nomComu = nomComu;
-        this.nomCientific = nomCientific;
-        this.descripcio = descripcio;
-        LlistatAliment = new ArrayList<>();
-        LlistatCuidador = new ArrayList<>();
-        LlistatEspais = new ArrayList<>();
-
-    }
-
-    /**
-     * És el métode que retorna una cadena que representa l'objecte Especie.
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAliment + ", LlistatCuidador=" + LlistatCuidador + '}';
-    }
-
-    /**
      * Obtenim el valor assignat a l'atribut "id".
      *
      * @return codi d'idenfiticacio de l'especie.
@@ -141,6 +111,36 @@ public class Especie {
     }
 
     /**
+     * És el Constructor dels atributs nomComu, nomCientific i descripcio.
+     * L'atribut id es inicialtizat amb el metode incrementarContador.
+     * Inicialitzam totes les llistes de la classe.
+     *
+     * @param nomComu és el nom comú de l'especie.
+     * @param nomCientific és el nom científic de l'especie.
+     * @param descripcio és una breu descripció de l'especie.
+     */
+    public Especie(String nomComu, String nomCientific, String descripcio) {
+        this.id = Especie.incrementarContador();
+        this.nomComu = nomComu;
+        this.nomCientific = nomCientific;
+        this.descripcio = descripcio;
+        LlistatAliment = new ArrayList<>();
+        LlistatCuidador = new ArrayList<>();
+        LlistatEspais = new ArrayList<>();
+
+    }
+
+    /**
+     * És el métode que retorna una cadena que representa l'objecte Especie.
+     *
+     * @return cadena que representa l'objecte.
+     */
+    @Override
+    public String toString() {
+        return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAliment + ", LlistatCuidador=" + LlistatCuidador + '}';
+    }
+
+    /**
      * Donam valor al contador d'especies. Cada especie te un rang de mil.
      *
      * @return suma mil al valor actual del contador.
@@ -153,7 +153,7 @@ public class Especie {
      * Aquest metode afegeix a l'ArrayList de LlistatCuidador un cuidador.
      *
      * @param nomCuidador és l'objecte cuidador que afegim a la llista.
-     * @return true si l'ha pogut afegir i false si el cuidador ja estaba a la
+     * @return true si l'ha pogut afegir i false si el cuidador ja estava a la
      * llista.
      */
     public boolean afegirCuidador(Cuidador nomCuidador) {
@@ -170,7 +170,7 @@ public class Especie {
      * Aquest mètode afegeix a l'ArrayList de LlistatAliment un aliment.
      *
      * @param nomAliment és l'aliment que afegim a la llista.
-     * @return true si l'ha pogut afegir i false si l'aliment ja estaba a la
+     * @return true si l'ha pogut afegir i false si l'aliment ja estava a la
      * llista.
      */
     public boolean afegirAliment(Aliment nomAliment) {
@@ -219,7 +219,7 @@ public class Especie {
      * Aquest mètode afegeix a l'ArrayList de LlistatEspais un espai.
      *
      * @param nomEspai es l'espai que afegim a la llista.
-     * @return true si l'ha pogut afegir i false si l'espai ja estaba a la
+     * @return true si l'ha pogut afegir i false si l'espai ja estava a la
      * llista.
      */
     public boolean afegirEspai(Espai nomEspai) {
