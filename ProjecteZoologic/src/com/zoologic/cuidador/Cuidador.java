@@ -122,7 +122,6 @@ public class Cuidador {
         while (it.hasNext()) {
             Tasca i = it.next();
             if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
-                System.out.println("Aquesta tasca ja esta en la llista.");
                 return false;
             }
         }
@@ -131,29 +130,20 @@ public class Cuidador {
     }
 
     /**
-     * Aquest metode elimina a l'ArrayDeque de LlistatTasques una tasca nova.
-     * Si la llista de tasques esta buida retorna false.
+     * Aquest metode elimina a l'ArrayDeque de LlistatTasques una tasca nova. Si
+     * la llista de tasques esta buida retorna false. Elimina la primera tasca
+     * que esta en la coa.
      *
-     * @param nomTasca és l'objecte tasca que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarTasca() {
-        
-        if(LlistatTasques.isEmpty()){
+
+        if (LlistatTasques.isEmpty()) {
             return false;
-        }else{
+        } else {
             LlistatTasques.remove();
             return true;
         }
-        /*
-        Iterator<Tasca> it = LlistatTasques.iterator();
-        while (it.hasNext()) {
-            Tasca i = it.next();
-            if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
-                LlistatTasques.remove(nomTasca);
-                return true;
-            }
-        }*/
     }
 
     /**
@@ -175,12 +165,17 @@ public class Cuidador {
     }
 
     /**
-     * Aquest mètode elimina a l'ArrayList de LlistaEspecies una especie.
+     * Aquest mètode elimina a l'ArrayList de LlistaEspecies una especie. Si la
+     * llista de especies esta buida, retorna false.
      *
      * @param nomEspecie és l'objecte especie quevolem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarEspecie(Especie nomEspecie) {
+
+        if (LlistatEspecies.isEmpty()) {
+            return false;
+        }
 
         for (int i = 0; i < LlistatEspecies.size(); i++) {
             if (LlistatEspecies.get(i).equals(nomEspecie)) {

@@ -143,12 +143,12 @@ public class Especie {
 
     /**
      * Obtenim els valors de la llista de exemplars.
+     *
      * @return llista de exemplars.
      */
     public ArrayList<Exemplar> getLlistatExemplars() {
         return LlistatExemplars;
     }
-    
 
     /**
      * És el Constructor de Especie amb els parametres nomComu, nomCientific i
@@ -225,12 +225,17 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode elimina de l'ArrayList de LlistatCuidador un cuidador.
+     * Aquest mètode elimina de l'ArrayList de LlistatCuidador un cuidador. Si
+     * la llista de cuidadors esta buida retorna false.
      *
      * @param nomCuidador és l'objecte cuidador que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
+
+        if (LlistatCuidador.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < LlistatCuidador.size(); i++) {
             if (LlistatCuidador.get(i).equals(nomCuidador)) {
                 LlistatCuidador.remove(nomCuidador);
@@ -241,12 +246,16 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatAliment un aliment.
+     * Aquest mètode elimnia de l'ArrayList de LlistatAliment un aliment. Si la
+     * llista de aliments esta buida retorna false.
      *
      * @param nomAliment és l'objecte aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
+        if (LlistatAliment.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < LlistatAliment.size(); i++) {
             if (LlistatAliment.get(i).equals(nomAliment)) {
                 LlistatAliment.remove(nomAliment);
@@ -274,12 +283,16 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatEspais un espai.
+     * Aquest mètode elimnia de l'ArrayList de LlistatEspais un espai. Si la
+     * llista de espais esta buida retorna false.
      *
      * @param nomEspai es l'objecte espai que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {
+        if (LlistatEspais.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < LlistatEspais.size(); i++) {
             if (LlistatEspais.get(i).equals(nomEspai)) {
                 LlistatEspais.remove(nomEspai);
@@ -307,12 +320,16 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatExemplars un exemplar.
+     * Aquest mètode elimnia de l'ArrayList de LlistatExemplars un exemplar. Si
+     * la llista de exemplars esta buida retorna false.
      *
      * @param nomExemplar es l'objecte exemplar que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
+        if (LlistatExemplars.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < LlistatExemplars.size(); i++) {
             if (LlistatExemplars.get(i).equals(nomExemplar)) {
                 LlistatExemplars.remove(nomExemplar);

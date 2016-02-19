@@ -65,6 +65,21 @@ public class Proves {
         System.out.println(toni.getLlistatTasques());
         toni.eliminarTasca();
         System.out.println(toni.getLlistatTasques());
+        
+        /*CREAMOS ESPACIOS*/
+        Espai jaula1 = new Espai("Jaula Gorilas",TANCAT);
+        Espai jaula2 = new Espai("Jaula Tigres",TANCAT);
+        Espai jaula3 = new Espai("Jaula Cocodrilos",TANCAT);
+        Espai aquiario1 = new Espai("Aquaiario delfines",AQUARI);
+        
+        /*AÑADIMOS ESPACIOS A LAS ESPECIES*/
+        gorilas.afegirEspaiEspecie(jaula1);
+        delfines.afegirEspaiEspecie(aquiario1);
+        System.out.println(gorilas.getLlistatEspais());
+        System.out.println(delfines.getLlistatEspais());
+        
+        /*BUSCAMOS LOS ACUARIOS DE UN CIERTO TIPO*/
+        //Añadir todos los espacios a una Arraylist o ArrayDeque del Zoo.
     }
 
 }
