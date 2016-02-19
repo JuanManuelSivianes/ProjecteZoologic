@@ -11,6 +11,7 @@ import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
 import com.zoologic.especie.Especie;
 import com.zoologic.exemplar.Exemplar;
+import com.zoologic.tasca.Tasca;
 import java.util.ArrayDeque;
 
 /**
@@ -42,17 +43,28 @@ public class Proves {
         System.out.println(gorilas.getLlistatCuidador());
 
         /*CREAR EJEMPLARES DE UNA ESPECIE*/
-        Exemplar mono1 = new Exemplar("Monito", delfines);
-        Exemplar delfin1 = new Exemplar("Monitu", gorilas);
+        Exemplar mono1 = new Exemplar("Monito", gorilas);
+        Exemplar delfin1 = new Exemplar("Delfinu", delfines);
         
         /*AÑADIMOS UN EJEMPLAR A UNA ESPECIE*/
-        gorilas.afegirExemplarEspecie(delfin1);
-        delfines.afegirExemplarEspecie(mono1);
+        gorilas.afegirExemplarEspecie(mono1);
+        delfines.afegirExemplarEspecie(delfin1);
         System.out.println(gorilas.getLlistatExemplars());
+        System.out.println(delfines.getLlistatExemplars());
         
-
-        System.out.println(mono1);
-        System.out.println(delfin1);
+        /*CREAR TAREAS*/
+        Tasca tarea1 = new Tasca("Netejar el tancat dels lleons.");
+        Tasca tarea2 = new Tasca("Buidar piscina dels dofins");
+        tarea2.setObservacions("En Delfinu fa temps que no menja");
+        Tasca tarea3 = new Tasca("Tancar els llums del zoo.");
+        
+        /*AÑADIR TAREAS A CUIDADORES*/
+        toni.afegirTasca(tarea1);
+        toni.afegirTasca(tarea2);
+        toni.afegirTasca(tarea3);
+        System.out.println(toni.getLlistatTasques());
+        toni.eliminarTasca();
+        System.out.println(toni.getLlistatTasques());
     }
 
 }

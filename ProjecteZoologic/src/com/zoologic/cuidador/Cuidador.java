@@ -132,12 +132,20 @@ public class Cuidador {
 
     /**
      * Aquest metode elimina a l'ArrayDeque de LlistatTasques una tasca nova.
+     * Si la llista de tasques esta buida retorna false.
      *
      * @param nomTasca és l'objecte tasca que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
-    public boolean eliminarTasca(Tasca nomTasca) {
-
+    public boolean eliminarTasca() {
+        
+        if(LlistatTasques.isEmpty()){
+            return false;
+        }else{
+            LlistatTasques.remove();
+            return true;
+        }
+        /*
         Iterator<Tasca> it = LlistatTasques.iterator();
         while (it.hasNext()) {
             Tasca i = it.next();
@@ -145,8 +153,7 @@ public class Cuidador {
                 LlistatTasques.remove(nomTasca);
                 return true;
             }
-        }
-        return false;
+        }*/
     }
 
     /**
