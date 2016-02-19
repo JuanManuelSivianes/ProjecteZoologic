@@ -7,42 +7,59 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * Classe que conte tota la informacio dels cuidadors.
  *
  * @author Sivi,Xavier,Jesus,Toni
  */
 public class Cuidador {
 
+    /**
+     * ID del cuidador.
+     */
     private int id;
+    /**
+     * Nom del cuidador.
+     */
     private String nom;
+    /**
+     * Llistat de les tasques del cuidador.
+     */
     private ArrayDeque<Tasca> LlistatTasques;
+    /**
+     * Llistat de les especies del cuidador.
+     */
     private ArrayList<Especie> LlistatEspecies;
 
     /**
-     * Obtenir el valor assignat a l'atribut "id".
-     * @return
+     * Obtenim el valor assignat a l'atribut "id".
+     *
+     * @return id de l'empleat.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Assigna un valor a l'atribut "id".
-     * @param id és el codi d'identificació del cuidador.
+     * Assignam el valor a l'atribut "id"
+     *
+     * @param id id de l'empleat.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Obtenir el valor assignat a l'atribut "nom".
-     * @return
+     * Obtenim el valor assignat a l'atribut "nom".
+     *
+     * @return nom de l'empleat.
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * Assigna un valor a l'atribut "nom".
+     * Assignam el valor a l'atribut "nom"
+     *
      * @param nom és el nom del cuidador.
      */
     public void setNom(String nom) {
@@ -50,24 +67,28 @@ public class Cuidador {
     }
 
     /**
-     * 
-     * @return 
+     * Obtenim els valors de la llista de tasques.
+     *
+     * @return llista de tasques.
      */
     public ArrayDeque<Tasca> getLlistatTasques() {
         return LlistatTasques;
     }
 
     /**
-     * 
-     * @return 
+     * Obtenim els valors de la llista de tasques.
+     *
+     * @return llista de especies.
      */
     public ArrayList<Especie> getLlistatEspecies() {
         return LlistatEspecies;
     }
 
     /**
-     * És el constructor dels atributs id i nom.
-     * @param id és el codi d'identificació del cuidador.
+     * És el constructor de Cuidador amb el parametre nom. Inicialitzam les dues
+     * llistes.
+     *
+     * @param id es el id del cuidador.
      * @param nom és el nom del cuidador.
      */
     public Cuidador(int id, String nom) {
@@ -78,8 +99,10 @@ public class Cuidador {
     }
 
     /**
-     * És el mètode que retorna una cadena que representa l'objecte Cuidador.
-     * @return 
+     * És el métode que mostra la informacio completa del objecte mostrant el
+     * valors del seus atributs.
+     *
+     * @return informacio completa del objecte.
      */
     @Override
     public String toString() {
@@ -87,9 +110,11 @@ public class Cuidador {
     }
 
     /**
-     * Aquest metode afegeix a l'ArrayList de LlistatTasques el nom de la tasca.
-     * @param nomTasca és el nom de la tasca del cuidador.
-     * @return 
+     * Aquest metode afegeix a l'ArrayDeque de LlistatTasques una tasca nova.
+     *
+     * @param nomTasca és la tasca que afegim a la llista.
+     * @return true si l'ha pogut afegir i false si la tasca ja estava a la
+     * llista.
      */
     public boolean afegirTasca(Tasca nomTasca) {
 
@@ -106,9 +131,10 @@ public class Cuidador {
     }
 
     /**
-     * Aquest metode elimina a l'ArrayList de LlistatTasques el nom de la tasca.
-     * @param nomTasca és el nom de la tasca del cuidador.
-     * @return 
+     * Aquest metode elimina a l'ArrayDeque de LlistatTasques una tasca nova.
+     *
+     * @param nomTasca és l'objecte tasca que volem eliminar.
+     * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarTasca(Tasca nomTasca) {
 
@@ -120,20 +146,20 @@ public class Cuidador {
                 return true;
             }
         }
-        System.out.println("Aquesta tasca no esta en la llista.");
         return false;
     }
 
     /**
-     * Aquest metode afegeix a l'ArrayList de LlistaEspecies el nom del cuidador.
-     * @param nomEspecie és el nom de l'especie que té cura un cuidador.
-     * @return 
+     * Aquest metode afegeix a l'ArrayList de LlistaEspecies una especie nova.
+     *
+     * @param nomEspecie és l'objecte especie que afegim a la llista.
+     * @return true si l'ha pogut afegir i false si la especie ja estava a la
+     * llista.
      */
     public boolean afegirEspecie(Especie nomEspecie) {
 
         for (int i = 0; i < LlistatEspecies.size(); i++) {
             if (LlistatEspecies.get(i).equals(nomEspecie)) {
-                System.out.println("Aquesta especie ja esta en la llista.");
                 return false;
             }
         }
@@ -142,19 +168,19 @@ public class Cuidador {
     }
 
     /**
-     * Aquest mètode elimina a l'ArrayList el nom de l'especie que el cuidador té cura.
-     * @param nomEspecie és el nom de l'especie que el cuidador té cura.
-     * @return 
+     * Aquest mètode elimina a l'ArrayList de LlistaEspecies una especie.
+     *
+     * @param nomEspecie és l'objecte especie quevolem eliminar.
+     * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarEspecie(Especie nomEspecie) {
-        
+
         for (int i = 0; i < LlistatEspecies.size(); i++) {
             if (LlistatEspecies.get(i).equals(nomEspecie)) {
                 LlistatEspecies.remove(nomEspecie);
                 return true;
             }
         }
-        System.out.println("Aquesta especie no esta en la llista.");
         return false;
     }
 }

@@ -195,7 +195,7 @@ public class Especie {
     /**
      * Aquest mètode afegeix a l'ArrayList de LlistatAliment un aliment.
      *
-     * @param nomAliment és l'aliment que afegim a la llista.
+     * @param nomAliment és l'objecte aliment que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'aliment ja estava a la
      * llista.
      */
@@ -212,7 +212,7 @@ public class Especie {
     /**
      * Aquest mètode elimina de l'ArrayList de LlistatCuidador un cuidador.
      *
-     * @param nomCuidador és el cuidador que volem eliminar.
+     * @param nomCuidador és l'objecte cuidador que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
@@ -228,7 +228,7 @@ public class Especie {
     /**
      * Aquest mètode elimnia de l'ArrayList de LlistatAliment un aliment.
      *
-     * @param nomAliment és l'aliment que volem eliminar.
+     * @param nomAliment és l'objecte aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
@@ -244,7 +244,7 @@ public class Especie {
     /**
      * Aquest mètode afegeix a l'ArrayList de LlistatEspais un espai.
      *
-     * @param nomEspai es l'espai que afegim a la llista.
+     * @param nomEspai es l'objecte espai que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'espai ja estava a la
      * llista.
      */
@@ -261,7 +261,7 @@ public class Especie {
     /**
      * Aquest mètode elimnia de l'ArrayList de LlistatEspais un espai.
      *
-     * @param nomEspai es l'espai que volem eliminar.
+     * @param nomEspai es l'objecte espai que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {

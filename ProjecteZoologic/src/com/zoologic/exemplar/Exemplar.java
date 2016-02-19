@@ -115,7 +115,7 @@ public class Exemplar {
     /**
      * Aquest mètode afegeix a l'ArrayList de LlistaAliments un aliment.
      *
-     * @param nomAliment és l'aliment que afegim a la llista.
+     * @param nomAliment és l'objecte aliment que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'aliment ja estava a la
      * llista.
      */
@@ -132,7 +132,7 @@ public class Exemplar {
     /**
      * Aquest mètode elimnia de l'ArrayList de LlistaAliments un aliment.
      *
-     * @param nomAliment es l'aliment que volem eliminar.
+     * @param nomAliment es l'objecte aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentExemplar(Aliment nomAliment) {
