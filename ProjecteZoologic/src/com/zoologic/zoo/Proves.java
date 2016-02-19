@@ -74,6 +74,8 @@ public class Proves {
         
         /*AÑADIMOS ESPACIOS A LAS ESPECIES*/
         gorilas.afegirEspaiEspecie(jaula1);
+        gorilas.afegirEspaiEspecie(jaula2);
+        gorilas.afegirEspaiEspecie(jaula3);
         delfines.afegirEspaiEspecie(aquiario1);
         System.out.println(gorilas.getLlistatEspais());
         System.out.println(delfines.getLlistatEspais());
