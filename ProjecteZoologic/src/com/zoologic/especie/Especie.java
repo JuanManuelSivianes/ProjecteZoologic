@@ -3,6 +3,7 @@ package com.zoologic.especie;
 import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
+import com.zoologic.exemplar.Exemplar;
 import java.util.ArrayList;
 
 /**
@@ -44,6 +45,11 @@ public class Especie {
      * Llista dels espais de la especie.
      */
     private ArrayList<Espai> LlistatEspais;
+
+    /**
+     * Llista dels exemplars de la especie.
+     */
+    private ArrayList<Exemplar> LlistatExemplars;
 
     /**
      * Obtenim el valor assignat a l'atribut "id".
@@ -136,6 +142,15 @@ public class Especie {
     }
 
     /**
+     * Obtenim els valors de la llista de exemplars.
+     * @return llista de exemplars.
+     */
+    public ArrayList<Exemplar> getLlistatExemplars() {
+        return LlistatExemplars;
+    }
+    
+
+    /**
      * És el Constructor de Especie amb els parametres nomComu, nomCientific i
      * descripcio. L'atribut id es inicialtizat amb el metode
      * incrementarContadorEspecie. Inicialitzam totes les llistes de la classe.
@@ -152,7 +167,7 @@ public class Especie {
         LlistatAliment = new ArrayList<>();
         LlistatCuidador = new ArrayList<>();
         LlistatEspais = new ArrayList<>();
-
+        LlistatExemplars = new ArrayList<>();
     }
 
     /**
@@ -274,4 +289,36 @@ public class Especie {
         return false;
     }
 
+    /**
+     * Aquest mètode afegeix a l'ArrayList de LlistatExemplars un exemplar.
+     *
+     * @param nomExemplar es l'objecte exemplar que afegim a la llista.
+     * @return true si l'ha pogut afegir i false si l'espai ja estava a la
+     * llista.
+     */
+    public boolean afegirExemplarEspecie(Exemplar nomExemplar) {
+        for (Exemplar LlistatExemplar : LlistatExemplars) {
+            if (LlistatExemplar.equals(nomExemplar)) {
+                return false;
+            }
+        }
+        LlistatExemplars.add(nomExemplar);
+        return true;
+    }
+
+    /**
+     * Aquest mètode elimnia de l'ArrayList de LlistatExemplars un exemplar.
+     *
+     * @param nomExemplar es l'objecte exemplar que volem eliminar.
+     * @return true si l'ha pogut eliminar i false, si no.
+     */
+    public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
+        for (int i = 0; i < LlistatExemplars.size(); i++) {
+            if (LlistatExemplars.get(i).equals(nomExemplar)) {
+                LlistatExemplars.remove(nomExemplar);
+                return true;
+            }
+        }
+        return false;
+    }
 }

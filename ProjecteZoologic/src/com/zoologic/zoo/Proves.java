@@ -23,35 +23,36 @@ public class Proves {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        //Creacion de un Zoologico nuevo.
+
+        /*CREAR ZOOLOGICO*/
         Zoologic marineland = new Zoologic("Marineland");
         System.out.println(marineland);
+
+        /*CREAR ESPECIES*/
+        Especie gorilas = new Especie("Gorilas", "Gorilus Maximus", "Monos Grandes");
+        Especie delfines = new Especie("Delfines", "Dolfinus Maximus", "Peces con agujeros");
+
+        /*CREAR CUIDADORES*/
+        Cuidador toni = new Cuidador(43198690, "Toni");
+        Cuidador paco = new Cuidador(43198691, "Paco");
+
+        /*AÑADIR CUIDADORES A LAS ESPECIES*/
+        gorilas.afegirCuidadorEspecie(paco);
+        gorilas.afegirCuidadorEspecie(toni);
+        System.out.println(gorilas.getLlistatCuidador());
+
+        /*CREAR EJEMPLARES DE UNA ESPECIE*/
+        Exemplar mono1 = new Exemplar("Monito", delfines);
+        Exemplar delfin1 = new Exemplar("Monitu", gorilas);
         
+        /*AÑADIMOS UN EJEMPLAR A UNA ESPECIE*/
+        gorilas.afegirExemplarEspecie(delfin1);
+        delfines.afegirExemplarEspecie(mono1);
+        System.out.println(gorilas.getLlistatExemplars());
         
-        Especie g = new Especie("b", "hjih", "jojoj");
-        Especie b = new Especie("g", "hjih", "jojoj");
-        
-        //marineland.afegirEspecie(b);
-        //marineland.afegirEspecie(g);
-        
-        //System.out.println(marineland.mostrarEspecies());
-        
-        Cuidador toni = new Cuidador(1,"Toni");
-        Cuidador paco = new Cuidador(2,"Paco");
-        
-        g.afegirCuidadorEspecie(paco);
-        g.afegirCuidadorEspecie(toni);
-        
-        System.out.println(g.getLlistatCuidador());
-        
-        Exemplar mono1 = new Exemplar("Monito",b);
-        Exemplar mono2 = new Exemplar("Monita",b);
-        Exemplar mono3 = new Exemplar("Monitu",g);
-        
+
         System.out.println(mono1);
-        System.out.println(mono2);
-        System.out.println(mono3);
+        System.out.println(delfin1);
     }
-    
+
 }
