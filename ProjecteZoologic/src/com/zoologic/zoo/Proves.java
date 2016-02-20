@@ -28,6 +28,7 @@ public class Proves {
         /*CREAR ZOOLOGICO*/
         Zoologic marineland = new Zoologic("Marineland");
         Zoologic wakambu = new Zoologic("Wakambu");
+        Zoologic Aquapark = new Zoologic("Aquapark");
         System.out.println(marineland);
         System.out.println(wakambu);
         
@@ -35,6 +36,9 @@ public class Proves {
         marineland.afegirZoologic(marineland);
         wakambu.afegirZoologic(wakambu);
         System.out.println(marineland.getLlistatZoologics());
+        wakambu.setNomZoologic("Marineland");
+        System.out.println(marineland.getLlistatZoologics());
+        System.out.println(wakambu);
 
         /*CREAR ESPECIES*/
         Especie gorilas = new Especie("Gorilas", "Gorilus Maximus", "Monos Grandes");
@@ -43,6 +47,9 @@ public class Proves {
         /*CREAR CUIDADORES*/
         Cuidador toni = new Cuidador(43198690, "Toni");
         Cuidador paco = new Cuidador(43198691, "Paco");
+        
+        /*AÑADIR CUIDADORES A UN ZOO*/
+        System.out.println(marineland.afegirCuidadorsZoologics(toni));
 
         /*AÑADIR CUIDADORES A LAS ESPECIES*/
         gorilas.afegirCuidadorEspecie(paco);
@@ -76,23 +83,33 @@ public class Proves {
         /*CREAMOS ESPACIOS*/
         Espai jaula1 = new Espai("Jaula Gorilas",TANCAT);
         Espai jaula2 = new Espai("Jaula Tigres",TANCAT);
-        Espai jaula3 = new Espai("Jaula Cocodrilos",TANCAT);
+        Espai jaula3 = new Espai("Jaula Gorilas",TANCAT);
         Espai aquiario1 = new Espai("Aquaiario delfines",AQUARI);
         
         /*AÑADIMOS ESPACIOS A LAS ESPECIES*/
         gorilas.afegirEspaiEspecie(jaula1);
         gorilas.afegirEspaiEspecie(jaula2);
-        gorilas.afegirEspaiEspecie(jaula3);
         delfines.afegirEspaiEspecie(aquiario1);
         System.out.println(gorilas.getLlistatEspais());
         System.out.println(delfines.getLlistatEspais());
         
-        /*BUSCAMOS LOS ACUARIOS DE UN CIERTO TIPO*/
-        //Añadir todos los espacios a una Arraylist o ArrayDeque del Zoo.
-        
         /*AÑADIR UNA ESPECIE A UN ZOO*/
-        marineland.afegirEspeciesZoologic(gorilas);
-        System.out.println(marineland.getLlistatEspecies());
+        //marineland.afegirEspeciesZoologic(gorilas);
+        //System.out.println(marineland.getLlistatEspecies());
+        
+        /*AÑADIR UNA ESPECIE A UN CUIDADOR*/
+        Especie momo = new Especie("MOMO", "MOMO", "MOMO");
+        marineland.afegirEspeciesZoologic(momo);
+        System.out.println(toni.afegirEspecie(marineland, momo));
+        System.out.println("ESPECIES DEL CUIDADOR TONI:");
+        System.out.println(toni.getLlistatEspecies());
+        System.out.println(toni.eliminarEspecie(momo));
+        marineland.afegirEspaiZoologic(jaula1);
+        marineland.afegirEspaiZoologic(jaula2);
+        marineland.afegirEspaiZoologic(jaula3);
+        System.out.println(marineland.getLlistatEspais());
+        marineland.eliminarEspaiZoologic(aquiario1);
+        marineland.eliminarEspaiZoologic(jaula1);
     }
 
 }

@@ -5,6 +5,7 @@ import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import com.zoologic.exemplar.Exemplar;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Classe que conte tota la informacio de cada especie.
@@ -181,6 +182,29 @@ public class Especie {
         return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAliment + ", LlistatCuidador=" + LlistatCuidador + '}';
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.nomCientific);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Especie other = (Especie) obj;
+        if (!Objects.equals(this.nomCientific, other.nomCientific)) {
+            return false;
+        }
+        return true;
+    }
+
+    
     /**
      * Donam valor al contador d'especies. Cada especie te un rang de mil.
      *
