@@ -27,7 +27,14 @@ public class Proves {
 
         /*CREAR ZOOLOGICO*/
         Zoologic marineland = new Zoologic("Marineland");
+        Zoologic wakambu = new Zoologic("Wakambu");
         System.out.println(marineland);
+        System.out.println(wakambu);
+        
+        /*AÑADIMOS LOS ZOOLOGICOS A LA LISTA*/
+        marineland.afegirZoologic(marineland);
+        wakambu.afegirZoologic(wakambu);
+        System.out.println(marineland.getLlistatZoologics());
 
         /*CREAR ESPECIES*/
         Especie gorilas = new Especie("Gorilas", "Gorilus Maximus", "Monos Grandes");
@@ -82,6 +89,10 @@ public class Proves {
         
         /*BUSCAMOS LOS ACUARIOS DE UN CIERTO TIPO*/
         //Añadir todos los espacios a una Arraylist o ArrayDeque del Zoo.
+        
+        /*AÑADIR UNA ESPECIE A UN ZOO*/
+        marineland.afegirEspeciesZoologic(gorilas);
+        System.out.println(marineland.getLlistatEspecies());
     }
 
 }
