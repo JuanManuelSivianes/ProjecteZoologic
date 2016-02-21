@@ -7,9 +7,12 @@ package com.zoologic.zoo;
 
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
+import com.zoologic.espais.TipusEspai;
 import com.zoologic.especie.Especie;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * Classe que conte tota la informacio dels zoologics.
@@ -45,7 +48,7 @@ public class Zoologic {
     /**
      * Llistat dels espais de un zoologic.
      */
-    private final HashSet<Espai> LlistatEspais;
+    private final ArrayList<Espai> LlistatEspais;
 
     /**
      * obtenim el valor assignat a l'atribut "nom".
@@ -111,7 +114,7 @@ public class Zoologic {
      *
      * @return valors de la llista d'espais de un zoologic.
      */
-    public HashSet<Espai> getLlistatEspais() {
+    public ArrayList<Espai> getLlistatEspais() {
         return LlistatEspais;
     }
 
@@ -127,7 +130,7 @@ public class Zoologic {
         Zoologic.LlistatZoologics = new HashMap<>();
         this.LlistatEspecies = new HashSet<>();
         this.LlistatCuidadors = new HashSet<>();
-        this.LlistatEspais = new HashSet<>();
+        this.LlistatEspais = new ArrayList<>();
     }
 
     /**
@@ -208,6 +211,15 @@ public class Zoologic {
             System.out.println("Aquest espai no esta al zoo.");
             return false;
         }
+    }
+
+    public Espai mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
+        for(int i = 0; i < LlistatEspais.size(); i++){
+            if(LlistatEspais.get(i).getTipus().equals(tipusEspai)){
+                return LlistatEspais.get(i);
+            }
+        }
+        return null;
     }
 
     /**
