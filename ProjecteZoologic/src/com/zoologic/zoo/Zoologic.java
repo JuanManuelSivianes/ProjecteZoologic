@@ -12,7 +12,6 @@ import com.zoologic.especie.Especie;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 
 /**
  * Classe que conte tota la informacio dels zoologics.
@@ -213,13 +212,21 @@ public class Zoologic {
         }
     }
 
-    public Espai mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
-        for(int i = 0; i < LlistatEspais.size(); i++){
-            if(LlistatEspais.get(i).getTipus().equals(tipusEspai)){
-                return LlistatEspais.get(i);
+    /**
+     * Aquest metode retorna una llista dels espais del zoologic del tipus que
+     * cercam.
+     *
+     * @param tipusEspai és el tipus de espai que cercam.
+     * @return llistat dels espais de un cert tipus.
+     */
+    public ArrayList mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
+        ArrayList<Espai> llistaEspaisTipus = new ArrayList<>();
+        for (int i = 0; i < LlistatEspais.size(); i++) {
+            if (LlistatEspais.get(i).getTipus().equals(tipusEspai)) {
+                llistaEspaisTipus.add(LlistatEspais.get(i));
             }
         }
-        return null;
+        return llistaEspaisTipus;
     }
 
     /**

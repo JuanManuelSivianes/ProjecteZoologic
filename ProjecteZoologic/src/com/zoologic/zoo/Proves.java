@@ -71,7 +71,7 @@ public class Proves {
         marineland.afegirEspaiZoologic(jaula2);
         marineland.afegirEspaiZoologic(aquario);
         
-        System.out.println(marineland.mostrarTipusEspaiZoologic(TANCAT));
+        System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
         
     }
 
