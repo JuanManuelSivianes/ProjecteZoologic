@@ -101,5 +101,4 @@ public class Espai {
         final Espai other = (Espai) obj;
         return Objects.equals(this.nom, other.nom);
     }
-
 }

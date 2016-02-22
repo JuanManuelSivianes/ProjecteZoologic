@@ -5,6 +5,7 @@
  */
 package com.zoologic.zoo;
 
+import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
@@ -45,7 +46,7 @@ public class Proves {
         /*CREAR CUIDADORES*/
         Cuidador toni = new Cuidador(43198690, "Toni");
         Cuidador paco = new Cuidador(43198691, "Paco");
-        Cuidador paco2 = new Cuidador(43198691, "Paco");
+        Cuidador paco2 = new Cuidador(43198691, "dd");
 
         /*AÑADIR CUIDADORES A UN ZOO*/
         System.out.println(marineland.afegirCuidadorsZoologics(toni));
@@ -66,24 +67,41 @@ public class Proves {
 
         Tasca tarea1 = new Tasca("Limpiar jaula monos");
         Tasca tarea2 = new Tasca("Limpiar jaula monos");
-        
+
         toni.afegirTasca(tarea1);
 
         marineland.afegirEspeciesZoologic(delfines);
-        
+
         gorilas.afegirCuidadorEspecie(marineland, toni);
         delfines.afegirCuidadorEspecie(marineland, paco);
         delfines.afegirCuidadorEspecie(marineland, toni);
         delfines.afegirCuidadorEspecie(marineland, toni);
-        
+
         delfines.eliminarCuidadorEspecie(paco2);
         delfines.eliminarCuidadorEspecie(toni);
         delfines.eliminarCuidadorEspecie(toni);
+
+        System.out.println(marineland.getLlistatCuidadors());
+        delfines.afegirEspaiEspecie(jaula2);
+        System.out.println(delfines.getLlistatEspais());
+
+        marineland.afegirEspaiZoologic(jaula2);
+        System.out.println(marineland.mostrarTipusEspaiZoologic(TANCAT));
+
+        delfines.afegirCuidadorEspecie(marineland, toni);
+        System.out.println(delfines.getLlistatCuidador());
+
+        Aliment poma = new Aliment(1, "Manzana");
+        System.out.println(poma);
+
+        poma.afegirPreparacio("Coger una manzana");
+        poma.afegirPreparacio("Coger una manzanaeeeeee");
+
         
-        //System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
-        
-        //System.out.println(gorilas.afegirCuidadorEspecie(paco2));
-        
-                
+        System.out.println(poma);
+        poma.afegirPreparacio("Coger una manzana");
+        System.out.println(poma);
+        poma.eliminarPreparacio("Coger una manzana");
+        System.out.println(poma);
     }
 }
