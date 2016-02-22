@@ -4,7 +4,9 @@ import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import com.zoologic.exemplar.Exemplar;
+import com.zoologic.zoo.Zoologic;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
 /**
@@ -37,20 +39,20 @@ public class Especie {
     /**
      * Llista del aliments de la especie.
      */
-    private ArrayList<Aliment> LlistatAliment;
+    private ArrayList<Aliment> LlistatAlimentEspecie;
     /**
      * Llista dels cuidadors de la especie.
      */
-    private ArrayList<Cuidador> LlistatCuidador;
+    private HashSet<Cuidador> LlistatCuidadorEspecie;
     /**
      * Llista dels espais de la especie.
      */
-    private ArrayList<Espai> LlistatEspais;
+    private HashSet<Espai> LlistatEspaisEspecie;
 
     /**
      * Llista dels exemplars de la especie.
      */
-    private ArrayList<Exemplar> LlistatExemplars;
+    private HashSet<Exemplar> LlistatExemplarsEspecie;
 
     /**
      * Obtenim el valor assignat a l'atribut "id".
@@ -120,8 +122,8 @@ public class Especie {
      *
      * @return llista d'espais.
      */
-    public ArrayList<Espai> getLlistatEspais() {
-        return LlistatEspais;
+    public HashSet<Espai> getLlistatEspais() {
+        return LlistatEspaisEspecie;
     }
 
     /**
@@ -130,7 +132,7 @@ public class Especie {
      * @return llista d'aliments.
      */
     public ArrayList<Aliment> getLlistatAliment() {
-        return LlistatAliment;
+        return LlistatAlimentEspecie;
     }
 
     /**
@@ -138,8 +140,8 @@ public class Especie {
      *
      * @return llista de cuidadors.
      */
-    public ArrayList<Cuidador> getLlistatCuidador() {
-        return LlistatCuidador;
+    public HashSet<Cuidador> getLlistatCuidador() {
+        return LlistatCuidadorEspecie;
     }
 
     /**
@@ -147,8 +149,8 @@ public class Especie {
      *
      * @return llista de exemplars.
      */
-    public ArrayList<Exemplar> getLlistatExemplars() {
-        return LlistatExemplars;
+    public HashSet<Exemplar> getLlistatExemplars() {
+        return LlistatExemplarsEspecie;
     }
 
     /**
@@ -165,10 +167,10 @@ public class Especie {
         this.nomComu = nomComu;
         this.nomCientific = nomCientific;
         this.descripcio = descripcio;
-        LlistatAliment = new ArrayList<>();
-        LlistatCuidador = new ArrayList<>();
-        LlistatEspais = new ArrayList<>();
-        LlistatExemplars = new ArrayList<>();
+        LlistatAlimentEspecie = new ArrayList<>();
+        LlistatCuidadorEspecie = new HashSet<>();
+        LlistatEspaisEspecie = new HashSet<>();
+        LlistatExemplarsEspecie = new HashSet<>();
     }
 
     /**
@@ -179,7 +181,7 @@ public class Especie {
      */
     @Override
     public String toString() {
-        return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAliment + ", LlistatCuidador=" + LlistatCuidador + '}';
+        return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAlimentEspecie + ", LlistatCuidador=" + LlistatCuidadorEspecie + '}';
     }
 
     @Override
@@ -204,7 +206,6 @@ public class Especie {
         return true;
     }
 
-    
     /**
      * Donam valor al contador d'especies. Cada especie te un rang de mil.
      *
@@ -215,74 +216,89 @@ public class Especie {
     }
 
     /**
-     * Aquest metode afegeix a l'ArrayList de LlistatCuidador un cuidador.
+     * Aquest metode afegeix a l'ArrayList de LlistatCuidadorEspecie un
+     * cuidador.
      *
+     * @param nomZoologic es el zoologic en el que cercam el cuidador.
      * @param nomCuidador és l'objecte cuidador que afegim a la llista.
      * @return true si l'ha pogut afegir i false si el cuidador ja estava a la
-     * llista.
+     * llista, el cuidador no esta al zoo, la especie no esta al zoo o si el la
+     * especie ja te aquest cuidador.
      */
-    public boolean afegirCuidadorEspecie(Cuidador nomCuidador) {
-        for (Cuidador LlistatCuidador1 : LlistatCuidador) {
-            if (LlistatCuidador1.equals(nomCuidador)) {
+    public boolean afegirCuidadorEspecie(Zoologic nomZoologic, Cuidador nomCuidador) {
+        if (nomZoologic.getLlistatEspecies().contains(Especie.this)) {
+            if (nomZoologic.getLlistatCuidadors().contains(nomCuidador)) {
+                if (LlistatCuidadorEspecie.contains(nomCuidador)) {
+                    System.out.println("Aquesta especie ja te aquest cuidador.");
+                    return false;
+                }
+            } else {
+                System.out.println("Aquest cuidador no esta al zoologic.");
                 return false;
             }
+        } else {
+            System.out.println("Aquesta especie no esta al zoologic.");
+            return false;
         }
-        LlistatCuidador.add(nomCuidador);
+        LlistatCuidadorEspecie.add(nomCuidador);
+        System.out.println("Cuidador afegit correctament a la especie.");
         return true;
     }
 
     /**
-     * Aquest mètode afegeix a l'ArrayList de LlistatAliment un aliment.
+     * Aquest mètode elimina de l'ArrayList de LlistatCuidadorEspecie un
+     *
+     * @param nomCuidador és l'objecte cuidador que volem eliminar.
+     * @return true si l'ha pogut eliminar i false si la llista de cuidadors
+     * esta buida o la especie no te aquest cuidador..
+     */
+    public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
+
+        if (LlistatCuidadorEspecie.isEmpty()) {
+            System.out.println("Aquesta especie no te cap cuidador.");
+            return false;
+        }
+        if (LlistatCuidadorEspecie.contains(nomCuidador)) {
+            LlistatCuidadorEspecie.remove(nomCuidador);
+            System.out.println("Cuidador eliminat correctament de la especie.");
+            return true;
+        } else {
+            System.out.println("La especie no te aquest cuidador.");
+            return false;
+        }
+    }
+
+    /**
+     * Aquest mètode afegeix a l'ArrayList de LlistatAlimentEspecie un aliment.
      *
      * @param nomAliment és l'objecte aliment que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'aliment ja estava a la
      * llista.
      */
     public boolean afegirAlimentEspecie(Aliment nomAliment) {
-        for (Aliment LlistatAliment1 : LlistatAliment) {
+        for (Aliment LlistatAliment1 : LlistatAlimentEspecie) {
             if (LlistatAliment1.equals(nomAliment)) {
                 return false;
             }
         }
-        LlistatAliment.add(nomAliment);
+        LlistatAlimentEspecie.add(nomAliment);
         return true;
     }
 
     /**
-     * Aquest mètode elimina de l'ArrayList de LlistatCuidador un cuidador. Si
-     * la llista de cuidadors esta buida retorna false.
-     *
-     * @param nomCuidador és l'objecte cuidador que volem eliminar.
-     * @return true si l'ha pogut eliminar i false, si no.
-     */
-    public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
-
-        if (LlistatCuidador.isEmpty()) {
-            return false;
-        }
-        for (int i = 0; i < LlistatCuidador.size(); i++) {
-            if (LlistatCuidador.get(i).equals(nomCuidador)) {
-                LlistatCuidador.remove(nomCuidador);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatAliment un aliment. Si la
-     * llista de aliments esta buida retorna false.
+     * Aquest mètode elimnia de l'ArrayList de LlistatAlimentEspecie un aliment.
+     * Si la llista de aliments esta buida retorna false.
      *
      * @param nomAliment és l'objecte aliment que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
-        if (LlistatAliment.isEmpty()) {
+        if (LlistatAlimentEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatAliment.size(); i++) {
-            if (LlistatAliment.get(i).equals(nomAliment)) {
-                LlistatAliment.remove(nomAliment);
+        for (int i = 0; i < LlistatAlimentEspecie.size(); i++) {
+            if (LlistatAlimentEspecie.get(i).equals(nomAliment)) {
+                LlistatAlimentEspecie.remove(nomAliment);
                 return true;
             }
         }
@@ -290,36 +306,36 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode afegeix a l'ArrayList de LlistatEspais un espai.
+     * Aquest mètode afegeix a l'ArrayList de LlistatEspaisEspecie un espai.
      *
      * @param nomEspai es l'objecte espai que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'espai ja estava a la
      * llista.
      */
     public boolean afegirEspaiEspecie(Espai nomEspai) {
-        for (Espai LlistatEspai : LlistatEspais) {
+        for (Espai LlistatEspai : LlistatEspaisEspecie) {
             if (LlistatEspai.equals(nomEspai)) {
                 return false;
             }
         }
-        LlistatEspais.add(nomEspai);
+        LlistatEspaisEspecie.add(nomEspai);
         return true;
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatEspais un espai. Si la
-     * llista de espais esta buida retorna false.
+     * Aquest mètode elimnia de l'ArrayList de LlistatEspaisEspecie un espai. Si
+     * la llista de espais esta buida retorna false.
      *
      * @param nomEspai es l'objecte espai que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {
-        if (LlistatEspais.isEmpty()) {
+        if (LlistatEspaisEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatEspais.size(); i++) {
-            if (LlistatEspais.get(i).equals(nomEspai)) {
-                LlistatEspais.remove(nomEspai);
+        for (int i = 0; i < LlistatEspaisEspecie.size(); i++) {
+            if (LlistatEspaisEspecie.get(i).equals(nomEspai)) {
+                LlistatEspaisEspecie.remove(nomEspai);
                 return true;
             }
         }
@@ -327,36 +343,37 @@ public class Especie {
     }
 
     /**
-     * Aquest mètode afegeix a l'ArrayList de LlistatExemplars un exemplar.
+     * Aquest mètode afegeix a l'ArrayList de LlistatExemplarsEspecie un
+     * exemplar.
      *
      * @param nomExemplar es l'objecte exemplar que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'espai ja estava a la
      * llista.
      */
     public boolean afegirExemplarEspecie(Exemplar nomExemplar) {
-        for (Exemplar LlistatExemplar : LlistatExemplars) {
+        for (Exemplar LlistatExemplar : LlistatExemplarsEspecie) {
             if (LlistatExemplar.equals(nomExemplar)) {
                 return false;
             }
         }
-        LlistatExemplars.add(nomExemplar);
+        LlistatExemplarsEspecie.add(nomExemplar);
         return true;
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatExemplars un exemplar. Si
-     * la llista de exemplars esta buida retorna false.
+     * Aquest mètode elimnia de l'ArrayList de LlistatExemplarsEspecie un
+     * exemplar. Si la llista de exemplars esta buida retorna false.
      *
      * @param nomExemplar es l'objecte exemplar que volem eliminar.
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
-        if (LlistatExemplars.isEmpty()) {
+        if (LlistatExemplarsEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatExemplars.size(); i++) {
-            if (LlistatExemplars.get(i).equals(nomExemplar)) {
-                LlistatExemplars.remove(nomExemplar);
+        for (int i = 0; i < LlistatExemplarsEspecie.size(); i++) {
+            if (LlistatExemplarsEspecie.get(i).equals(nomExemplar)) {
+                LlistatExemplarsEspecie.remove(nomExemplar);
                 return true;
             }
         }

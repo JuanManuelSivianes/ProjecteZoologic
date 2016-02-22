@@ -12,6 +12,7 @@ import com.zoologic.especie.Especie;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * Classe que conte tota la informacio dels zoologics.
@@ -47,7 +48,7 @@ public class Zoologic {
     /**
      * Llistat dels espais de un zoologic.
      */
-    private final ArrayList<Espai> LlistatEspais;
+    private final HashSet<Espai> LlistatEspais;
 
     /**
      * obtenim el valor assignat a l'atribut "nom".
@@ -113,7 +114,7 @@ public class Zoologic {
      *
      * @return valors de la llista d'espais de un zoologic.
      */
-    public ArrayList<Espai> getLlistatEspais() {
+    public HashSet<Espai> getLlistatEspais() {
         return LlistatEspais;
     }
 
@@ -129,7 +130,7 @@ public class Zoologic {
         Zoologic.LlistatZoologics = new HashMap<>();
         this.LlistatEspecies = new HashSet<>();
         this.LlistatCuidadors = new HashSet<>();
-        this.LlistatEspais = new ArrayList<>();
+        this.LlistatEspais = new HashSet<>();
     }
 
     /**
@@ -187,7 +188,7 @@ public class Zoologic {
      */
     public boolean afegirEspaiZoologic(Espai nomEspai) {
         if (LlistatEspais.add(nomEspai)) {
-            System.out.println("Espai afegit correctament.");
+            System.out.println("Espai afegit correctament al zoo.");
             return true;
         } else {
             System.out.println("Espai duplicat.");
@@ -220,13 +221,16 @@ public class Zoologic {
      * @return llistat dels espais de un cert tipus.
      */
     public ArrayList mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
-        ArrayList<Espai> llistaEspaisTipus = new ArrayList<>();
-        for (int i = 0; i < LlistatEspais.size(); i++) {
-            if (LlistatEspais.get(i).getTipus().equals(tipusEspai)) {
-                llistaEspaisTipus.add(LlistatEspais.get(i));
+        ArrayList listadoEspacios = new ArrayList();
+        
+        Iterator<Espai> itr = LlistatEspais.iterator();
+        while (itr.hasNext()) {
+            Espai o = itr.next();
+            if (o.getTipus().equals(tipusEspai)) {
+                listadoEspacios.add(o);
             }
         }
-        return llistaEspaisTipus;
+        return listadoEspacios;
     }
 
     /**

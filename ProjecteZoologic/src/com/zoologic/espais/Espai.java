@@ -5,6 +5,9 @@
  */
 package com.zoologic.espais;
 
+import com.zoologic.zoo.Zoologic;
+import java.util.Objects;
+
 /**
  * Classe que conte tota la informacio dels espais.
  *
@@ -16,6 +19,7 @@ public class Espai {
      * Nom de l'espai.
      */
     private String nom;
+
     /**
      * El tipus de espai que és.
      */
@@ -78,4 +82,24 @@ public class Espai {
     public String toString() {
         return "Espai{" + "nom=" + nom + ", tipus=" + tipus + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.nom);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Espai other = (Espai) obj;
+        return Objects.equals(this.nom, other.nom);
+    }
+
 }

@@ -5,14 +5,12 @@
  */
 package com.zoologic.zoo;
 
-import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import static com.zoologic.espais.TipusEspai.*;
 import com.zoologic.especie.Especie;
 import com.zoologic.exemplar.Exemplar;
 import com.zoologic.tasca.Tasca;
-import java.util.ArrayDeque;
 
 /**
  *
@@ -31,7 +29,7 @@ public class Proves {
         Zoologic Aquapark = new Zoologic("Aquapark");
         System.out.println(marineland);
         System.out.println(wakambu);
-        
+
         /*AÑADIMOS LOS ZOOLOGICOS A LA LISTA*/
         marineland.afegirZoologic(marineland);
         wakambu.afegirZoologic(wakambu);
@@ -47,32 +45,45 @@ public class Proves {
         /*CREAR CUIDADORES*/
         Cuidador toni = new Cuidador(43198690, "Toni");
         Cuidador paco = new Cuidador(43198691, "Paco");
-        
+        Cuidador paco2 = new Cuidador(43198691, "Paco");
+
         /*AÑADIR CUIDADORES A UN ZOO*/
         System.out.println(marineland.afegirCuidadorsZoologics(toni));
 
         /*AÑADIR CUIDADORES A LAS ESPECIES*/
-        gorilas.afegirCuidadorEspecie(paco);
-        gorilas.afegirCuidadorEspecie(toni);
+        //gorilas.afegirCuidadorEspecie(paco);
+        //gorilas.afegirCuidadorEspecie(toni);
         System.out.println(gorilas.getLlistatCuidador());
 
         /*CREAR EJEMPLARES DE UNA ESPECIE*/
         Exemplar mono1 = new Exemplar("Monito", gorilas);
         Exemplar delfin1 = new Exemplar("Delfinu", delfines);
 
-        
         /*CREAMOS ESPACIOS*/
-        Espai jaula1 = new Espai("Jaula Gorilas",TANCAT);
-        Espai jaula2 = new Espai("Jaula Tigres",TANCAT);
-        Espai jaula3 = new Espai("Jaula Gorilas",TANCAT);
-        Espai aquario = new Espai("Aquario delfines",AQUARI);
+        Espai jaula1 = new Espai("Jaula", TANCAT);
+        Espai jaula2 = new Espai("Jaula2", TANCAT);
+        Espai aquario = new Espai("Aquario delfines", AQUARI);
 
-        marineland.afegirEspaiZoologic(jaula1);
-        marineland.afegirEspaiZoologic(jaula2);
-        marineland.afegirEspaiZoologic(aquario);
+        Tasca tarea1 = new Tasca("Limpiar jaula monos");
+        Tasca tarea2 = new Tasca("Limpiar jaula monos");
         
-        System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
+        toni.afegirTasca(tarea1);
+
+        marineland.afegirEspeciesZoologic(delfines);
         
+        gorilas.afegirCuidadorEspecie(marineland, toni);
+        delfines.afegirCuidadorEspecie(marineland, paco);
+        delfines.afegirCuidadorEspecie(marineland, toni);
+        delfines.afegirCuidadorEspecie(marineland, toni);
+        
+        delfines.eliminarCuidadorEspecie(paco2);
+        delfines.eliminarCuidadorEspecie(toni);
+        delfines.eliminarCuidadorEspecie(toni);
+        
+        //System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
+        
+        //System.out.println(gorilas.afegirCuidadorEspecie(paco2));
+        
+                
     }
-
 }

@@ -25,11 +25,11 @@ public class Cuidador {
     /**
      * Llistat de les tasques del cuidador.
      */
-    private ArrayDeque<Tasca> LlistatTasques;
+    private final ArrayDeque<Tasca> LlistatTasques;
     /**
      * Llistat de les especies del cuidador.
      */
-    private ArrayList<Especie> LlistatEspecies;
+    private final ArrayList<Especie> LlistatEspecies;
 
     /**
      * Obtenim el valor assignat a l'atribut "id".
@@ -38,15 +38,6 @@ public class Cuidador {
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * Assignam el valor a l'atribut "id"
-     *
-     * @param id id de l'empleat.
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 
     /**
@@ -124,17 +115,14 @@ public class Cuidador {
             return false;
         }
         final Cuidador other = (Cuidador) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
+        return this.id == other.id;
     }
 
     /**
      * Aquest metode afegeix a l'ArrayDeque de LlistatTasques una tasca nova.
      *
      * @param nomTasca és la tasca que afegim a la llista.
-     * @return true si l'ha pogut afegir i false si la tasca ja estava a la
+     * @return true si l'ha pogut afegir i false si la tasca ja esta a la
      * llista.
      */
     public boolean afegirTasca(Tasca nomTasca) {
@@ -143,10 +131,12 @@ public class Cuidador {
         while (it.hasNext()) {
             Tasca i = it.next();
             if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
+                System.out.println("Aquest cuidador ja te aquesta tasca.");
                 return false;
             }
         }
         LlistatTasques.add(nomTasca);
+        System.out.println("Tasca afegida correctament al cuidador.");
         return true;
     }
 
@@ -173,12 +163,17 @@ public class Cuidador {
      * @param nomZoologic es el zoologic en el que cercam l'especie.
      * @param nomEspecie és l'objecte especie que afegim a la llista.
      * @return true si l'ha pogut afegir i false si la especie ja estava a la
-     * llista.
+     * llista, la especie no esta al zoo, el cuidador no esta al zoo o si el
+     * cuidador ja te aquesta especie.
      */
-    public boolean afegirEspecie(Zoologic nomZoologic, Especie nomEspecie) {
+    public boolean afegirEspecieCuidador(Zoologic nomZoologic, Especie nomEspecie) {
 
         if (nomZoologic.getLlistatCuidadors().contains(Cuidador.this)) {
             if (nomZoologic.getLlistatEspecies().contains(nomEspecie)) {
+                if (LlistatEspecies.contains(nomEspecie)) {
+                    System.out.println("Aquest cuidador ja te aquesta especie.");
+                    return false;
+                }
             } else {
                 System.out.println("Aquesta especie no esta al zoo.");
                 return false;
@@ -187,16 +182,7 @@ public class Cuidador {
             System.out.println("Aquest cuidador no esta al zoo.");
             return false;
         }
-        for (int j = 0; j < nomZoologic.getLlistatEspecies().size(); j++) {
-            if (nomZoologic.getLlistatEspecies().contains(nomEspecie)) {
-                for (int i = 0; i < LlistatEspecies.size(); i++) {
-                    if (LlistatEspecies.get(i).equals(nomEspecie)) {
-                        System.out.println("Aquest cuidador ja te aquesta especie.");
-                        return false;
-                    }
-                }
-            }
-        }
+
         LlistatEspecies.add(nomEspecie);
         System.out.println("Especie afegida correctament al cuidador.");
         return true;
@@ -206,23 +192,23 @@ public class Cuidador {
      * Aquest mètode elimina a l'ArrayList de LlistaEspecies una especie.
      *
      * @param nomEspecie és l'objecte especie quevolem eliminar.
-     * @return true si l'ha pogut eliminar i false, si no. Si la llista de
-     * especies esta buida, retorna false.
+     * @return true si l'ha pogut eliminar i false si la llista de especies esta
+     * buida o el cuidador no te aquesta especie.
      */
     public boolean eliminarEspecie(Especie nomEspecie) {
 
         if (LlistatEspecies.isEmpty()) {
+            System.out.println("Aquest cuidador no te cap especie.");
             return false;
         }
 
-        for (int i = 0; i < LlistatEspecies.size(); i++) {
-            if (LlistatEspecies.get(i).equals(nomEspecie)) {
-                LlistatEspecies.remove(nomEspecie);
-                System.out.println("Especie eliminada correctament del cuidador.");
-                return true;
-            }
+        if (LlistatEspecies.contains(nomEspecie)) {
+            LlistatEspecies.remove(nomEspecie);
+            System.out.println("Especie eliminada correctament del cuidador.");
+            return true;
+        } else {
+            System.out.println("El cuidador no te aquesta especie.");
+            return false;
         }
-        System.out.println("El cuidador no te aquesta especie.");
-        return false;
     }
 }

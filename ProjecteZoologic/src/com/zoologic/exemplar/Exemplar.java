@@ -3,6 +3,7 @@ package com.zoologic.exemplar;
 import com.zoologic.especie.Especie;
 import com.zoologic.aliment.Aliment;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Classe que conte tota la informacio del exemplars de cada especie.
@@ -110,6 +111,32 @@ public class Exemplar {
     @Override
     public String toString() {
         return "Exemplar{" + "id=" + id + ", nom=" + nom + ", especie=" + nomEspecie + ", aliments=" + LlistatAliments + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.nom);
+        hash = 11 * hash + Objects.hashCode(this.nomEspecie);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Exemplar other = (Exemplar) obj;
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomEspecie, other.nomEspecie)) {
+            return false;
+        }
+        return true;
     }
 
     /**

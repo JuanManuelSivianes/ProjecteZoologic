@@ -6,8 +6,9 @@
 package com.zoologic.tasca;
 
 /**
+ * Classe que conte tota la informacio de les tasques.
  *
- * @author Arsenik
+ * @author Sivi,Xavier,Jesus,Toni
  */
 public class Tasca {
 
@@ -57,7 +58,8 @@ public class Tasca {
     }
 
     /**
-     * Constructor de Tasca amb els parametres descripcio.
+     * Constructor de Tasca amb el parametre descripcio. Les observacions son
+     * opcionasl, per aixo no estan al constructor.
      *
      * @param descripcio de la tasca.
      */
@@ -65,6 +67,12 @@ public class Tasca {
         this.descripcio = descripcio;
     }
 
+    /**
+     * És el métode que mostra la informacio completa del objecte mostrant el
+     * valors del seus atributs.
+     *
+     * @return informacio completa del objecte.
+     */
     @Override
     public String toString() {
         return "Tasca{" + "descripcio=" + descripcio + ", observacions=" + observacions + '}';
