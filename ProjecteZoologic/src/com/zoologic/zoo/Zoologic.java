@@ -10,6 +10,7 @@ import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import com.zoologic.espais.TipusEspai;
 import com.zoologic.especie.Especie;
+import com.zoologic.exemplar.Exemplar;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -223,7 +224,7 @@ public class Zoologic {
      */
     public ArrayList mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
         ArrayList listadoEspacios = new ArrayList();
-        
+
         Iterator<Espai> itr = LlistatEspais.iterator();
         while (itr.hasNext()) {
             Espai o = itr.next();
@@ -300,5 +301,31 @@ public class Zoologic {
             System.out.println("Aquest cuidador no esta al zoo.");
             return false;
         }
+    }
+
+    /**
+     * Aquest metode fa un cerca per els exemplars de totes les especies i
+     * afegeix els que consumeixen l'aliment que pasam com a parametre a una
+     * llista creada.
+     *
+     * @param nomAliment és l'objecte aliment que cercam.
+     * @return retorna una llista de tots els exemplars que consumeixen un
+     * determinat aliment.
+     */
+    public ArrayList mostrarExemplarsPerAliment(Aliment nomAliment) {
+        ArrayList<String> llistatExemplarsAliment = new ArrayList<>();
+
+        Iterator<Especie> especie = LlistatEspecies.iterator();
+        while (especie.hasNext()) {
+            Especie i = especie.next();
+            Iterator<Exemplar> exemplar = i.getLlistatExemplars().iterator();
+            while (exemplar.hasNext()) {
+                Exemplar o = exemplar.next();
+                if (o.getAliments().contains(nomAliment)) {
+                    llistatExemplarsAliment.add(o.getNom());
+                }
+            }
+        }
+        return llistatExemplarsAliment;
     }
 }
