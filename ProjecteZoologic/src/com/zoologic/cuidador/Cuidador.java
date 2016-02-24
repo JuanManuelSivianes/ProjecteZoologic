@@ -150,9 +150,11 @@ public class Cuidador {
     public boolean eliminarTasca() {
 
         if (LlistatTasques.isEmpty()) {
+            System.out.println("Aquest cuidador no te cap tasca.");
             return false;
         } else {
             LlistatTasques.remove();
+            System.out.println("Tasca eliminada correctament del cuidador.");
             return true;
         }
     }

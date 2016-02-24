@@ -147,13 +147,14 @@ public class Exemplar {
      * llista.
      */
     public boolean afegirAlimentExemplar(Aliment nomAliment) {
-        for (Aliment LlistatAliment : LlistatAliments) {
-            if (LlistatAliment.equals(nomAliment)) {
-                return false;
-            }
+        if (LlistatAliments.contains(nomAliment)) {
+            System.out.println("Aquest exemplar ja te aquest aliment.");
+            return false;
+        } else {
+            LlistatAliments.add(nomAliment);
+            System.out.println("Aliment afegit correctament a l'exemplar.");
+            return true;
         }
-        LlistatAliments.add(nomAliment);
-        return true;
     }
 
     /**
@@ -163,13 +164,18 @@ public class Exemplar {
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentExemplar(Aliment nomAliment) {
-        for (int i = 0; i < LlistatAliments.size(); i++) {
-            if (LlistatAliments.get(i).equals(nomAliment)) {
-                LlistatAliments.remove(nomAliment);
-                return true;
-            }
+        if (LlistatAliments.isEmpty()) {
+            System.out.println("Aquest exemplar no te cap aliment.");
+            return false;
         }
-        return false;
+        if (LlistatAliments.contains(nomAliment)) {
+            LlistatAliments.remove(nomAliment);
+            System.out.println("Aliment aliminat correctament de l'exemplar.");
+            return true;
+        } else {
+            System.out.println("Aquest exemplar no te aquest aliment.");
+            return false;
+        }
     }
 
 }

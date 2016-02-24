@@ -24,84 +24,51 @@ public class Proves {
      */
     public static void main(String[] args) {
 
-        /*CREAR ZOOLOGICO*/
         Zoologic marineland = new Zoologic("Marineland");
-        Zoologic wakambu = new Zoologic("Wakambu");
-        Zoologic Aquapark = new Zoologic("Aquapark");
-        System.out.println(marineland);
-        System.out.println(wakambu);
-
-        /*AÑADIMOS LOS ZOOLOGICOS A LA LISTA*/
-        marineland.afegirZoologic(marineland);
-        wakambu.afegirZoologic(wakambu);
-        System.out.println(marineland.getLlistatZoologics());
-        wakambu.setNomZoologic("Marineland");
-        System.out.println(marineland.getLlistatZoologics());
-        System.out.println(wakambu);
-
-        /*CREAR ESPECIES*/
-        Especie gorilas = new Especie("Gorilas", "Gorilus Maximus", "Monos Grandes");
-        Especie delfines = new Especie("Delfines", "Dolfinus Maximus", "Peces con agujeros");
-
-        /*CREAR CUIDADORES*/
-        Cuidador toni = new Cuidador(43198690, "Toni");
-        Cuidador paco = new Cuidador(43198691, "Paco");
-        Cuidador paco2 = new Cuidador(43198691, "dd");
-
-        /*AÑADIR CUIDADORES A UN ZOO*/
-        System.out.println(marineland.afegirCuidadorsZoologics(toni));
-
-        /*AÑADIR CUIDADORES A LAS ESPECIES*/
-        //gorilas.afegirCuidadorEspecie(paco);
-        //gorilas.afegirCuidadorEspecie(toni);
-        System.out.println(gorilas.getLlistatCuidador());
-
-        /*CREAR EJEMPLARES DE UNA ESPECIE*/
-        Exemplar mono1 = new Exemplar("Monito", gorilas);
-        Exemplar delfin1 = new Exemplar("Delfinu", delfines);
-
-        /*CREAMOS ESPACIOS*/
-        Espai jaula1 = new Espai("Jaula", TANCAT);
-        Espai jaula2 = new Espai("Jaula2", TANCAT);
-        Espai aquario = new Espai("Aquario delfines", AQUARI);
-
-        Tasca tarea1 = new Tasca("Limpiar jaula monos");
-        Tasca tarea2 = new Tasca("Limpiar jaula monos");
-
-        toni.afegirTasca(tarea1);
-
-        marineland.afegirEspeciesZoologic(delfines);
-
-        gorilas.afegirCuidadorEspecie(marineland, toni);
-        delfines.afegirCuidadorEspecie(marineland, paco);
-        delfines.afegirCuidadorEspecie(marineland, toni);
-        delfines.afegirCuidadorEspecie(marineland, toni);
-
-        delfines.eliminarCuidadorEspecie(paco2);
-        delfines.eliminarCuidadorEspecie(toni);
-        delfines.eliminarCuidadorEspecie(toni);
-
-        System.out.println(marineland.getLlistatCuidadors());
-        delfines.afegirEspaiEspecie(jaula2);
-        System.out.println(delfines.getLlistatEspais());
-
-        marineland.afegirEspaiZoologic(jaula2);
-        System.out.println(marineland.mostrarTipusEspaiZoologic(TANCAT));
-
-        delfines.afegirCuidadorEspecie(marineland, toni);
-        System.out.println(delfines.getLlistatCuidador());
-
-        Aliment poma = new Aliment(1, "Manzana");
-        System.out.println(poma);
-
-        poma.afegirPreparacio("Coger una manzana");
-        poma.afegirPreparacio("Coger una manzanaeeeeee");
-
+        Tasca tarea1 = new Tasca("Limpiar jaula tigres.");
+        Especie gorilas = new Especie("Gorilas", "Gorilas Maximus", "Son monos grandes.");
         
-        System.out.println(poma);
-        poma.afegirPreparacio("Coger una manzana");
-        System.out.println(poma);
-        poma.eliminarPreparacio("Coger una manzana");
-        System.out.println(poma);
+        Aliment manzana = new Aliment(1, "Manzana");
+        Exemplar mono1 = new Exemplar("MonoUno", gorilas);
+        
+        Cuidador toni = new Cuidador(43198690, "Toni");
+        Cuidador xavi = new Cuidador(43198691, "Xavi");
+        Cuidador sivi = new Cuidador(43198692, "Sivi");
+        
+        Espai jaula1 = new Espai("Jaula Gorilas", TANCAT);
+        Espai jaula2 = new Espai("Jaula Gorilas Dos", TANCAT);
+        Espai aquiario1 = new Espai("Aquiario Gorilas", AQUARI);
+        
+        /*LLISTAR ELS CUIDADORS*/
+        marineland.afegirCuidadorsZoologics(toni);
+        marineland.afegirCuidadorsZoologics(xavi);
+        marineland.afegirCuidadorsZoologics(sivi);
+        System.out.println(marineland.getLlistatCuidadors());
+        System.out.println("");
+        
+        /*LISTAR ELS ESPAIS ON VIU UNA CERTA ESPECIE*/
+        marineland.afegirEspeciesZoologic(gorilas);
+        marineland.afegirEspaiZoologic(jaula1);
+        marineland.afegirEspaiZoologic(jaula2);
+        marineland.afegirEspaiZoologic(aquiario1);
+        gorilas.afegirEspaiEspecie(marineland, jaula1);
+        gorilas.afegirEspaiEspecie(marineland, jaula2);
+        gorilas.afegirEspaiEspecie(marineland, aquiario1);
+        System.out.println(gorilas.getLlistatEspais());
+        System.out.println("");
+        
+        /*LLISTAR ELS ESPAIS D'UN CERT TIPUS*/
+        System.out.println(marineland.mostrarTipusEspaiZoologic(TANCAT));
+        System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
+        System.out.println("");
+        
+        /*LLISTAR ELS CUIDADORS D'UNA CERTA ESPECIE*/
+        gorilas.afegirCuidadorEspecie(marineland, toni);
+        gorilas.afegirCuidadorEspecie(marineland, xavi);
+        gorilas.afegirCuidadorEspecie(marineland, sivi);
+        System.out.println(gorilas.getLlistatCuidador());
+        System.out.println("");
+        
+        
     }
 }

@@ -297,6 +297,7 @@ public class Especie {
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
         if (LlistatAlimentEspecie.isEmpty()) {
+            System.out.println("Aquesta especie no te cap aliment.");
             return false;
         }
         if (LlistatAlimentEspecie.contains(nomAliment)) {
@@ -347,6 +348,7 @@ public class Especie {
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {
         if (LlistatEspaisEspecie.isEmpty()) {
+            System.out.println("Aquesta especie no te cap espai.");
             return false;
         }
         if (LlistatEspaisEspecie.contains(nomEspai)) {
@@ -374,6 +376,7 @@ public class Especie {
             return false;
         } else {
             LlistatExemplarsEspecie.add(nomExemplar);
+            System.out.println("Exemplar afegit correctament a la especie.");
             return true;
         }
     }
@@ -388,6 +391,7 @@ public class Especie {
      */
     public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
         if (LlistatExemplarsEspecie.isEmpty()) {
+            System.out.println("Aquesta especie no te cap exemplar.");
             return false;
         }
         if (LlistatExemplarsEspecie.contains(nomExemplar)) {

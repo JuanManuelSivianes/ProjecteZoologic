@@ -40,21 +40,21 @@ public class Tasca {
     }
 
     /**
-     * Obtenim el valor assignat a l'atribut "Observacions".
-     *
-     * @return observacions de la tasca.
-     */
-    public String getObservacions() {
-        return observacions;
-    }
-
-    /**
      * Assignam el valor a l'atribut "Observacions"
      *
      * @param observacions de la tasca.
      */
     public void setObservacions(String observacions) {
         this.observacions = observacions;
+    }
+
+    /**
+     * Obtenim el valor assignat a l'atribut "Observacions".
+     *
+     * @return observacions de la tasca.
+     */
+    public String getObservacions() {
+        return observacions;
     }
 
     /**
@@ -78,4 +78,22 @@ public class Tasca {
         return "Tasca{" + "descripcio=" + descripcio + ", observacions=" + observacions + '}';
     }
 
+    public boolean afegirObservacions(String observacio) {
+
+        Tasca.this.setObservacions(observacio);
+        System.out.println("Observacio afegida a la tasca.");
+        return true;
+    }
+
+    public boolean eliminarObservacions(String observacion) {
+        if (Tasca.this.getObservacions() == null) {
+            System.out.println("Aquesta tasca no te observacions.");
+            return false;
+        }
+        if (Tasca.this.getObservacions().contains(observacion)) {
+            Tasca.this.setObservacions(null);
+            System.out.println("Observacio eliminada correctament de la tasca.");
+        }
+        return true;
+    }
 }

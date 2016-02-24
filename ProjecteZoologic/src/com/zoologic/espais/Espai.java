@@ -5,7 +5,6 @@
  */
 package com.zoologic.espais;
 
-import com.zoologic.zoo.Zoologic;
 import java.util.Objects;
 
 /**

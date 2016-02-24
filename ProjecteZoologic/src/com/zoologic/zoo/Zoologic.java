@@ -5,6 +5,7 @@
  */
 package com.zoologic.zoo;
 
+import com.zoologic.aliment.Aliment;
 import com.zoologic.cuidador.Cuidador;
 import com.zoologic.espais.Espai;
 import com.zoologic.espais.TipusEspai;

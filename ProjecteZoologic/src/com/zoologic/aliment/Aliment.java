@@ -1,7 +1,6 @@
 package com.zoologic.aliment;
 
 import java.util.ArrayDeque;
-import java.util.Collections;
 
 /**
  *
@@ -68,7 +67,7 @@ public class Aliment {
     }
 
     /**
-     * És el constructor dels atributs id i nom.
+     * És el constructor dels atributs id i nom. Inicialitzam la llistes.
      *
      * @param id és el codi d'identificació que té un aliment.
      * @param nom és el nom que reb un aliment.
@@ -90,17 +89,21 @@ public class Aliment {
         return "Aliment{" + "id=" + id + ", nom=" + nom + ", preparacio=" + preparacio + '}';
     }
 
-    public boolean afegirPreparacio(String prepa) {
-        if(preparacio.contains(prepa)){
+    public boolean afegirPreparacio(String pas) {
+        if (preparacio.contains(pas)) {
             return false;
-        }else{
-         preparacio.add(prepa);
-         return true;
+        } else {
+            preparacio.add(pas);
+            return true;
         }
     }
 
-    public void eliminarPreparacio(String prepa) {
-        preparacio.remove(prepa);
+    public boolean eliminarPreparacio(String pas) {
+        if (preparacio.remove(pas)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
