@@ -28,9 +28,6 @@ public class Proves {
         Tasca tarea1 = new Tasca("Limpiar jaula tigres.");
         Especie gorilas = new Especie("Gorilas", "Gorilas Maximus", "Son monos grandes.");
         
-        Aliment manzana = new Aliment(1, "Manzana");
-        Exemplar mono1 = new Exemplar("MonoUno", gorilas);
-        
         Cuidador toni = new Cuidador(43198690, "Toni");
         Cuidador xavi = new Cuidador(43198691, "Xavi");
         Cuidador sivi = new Cuidador(43198692, "Sivi");
@@ -69,6 +66,24 @@ public class Proves {
         System.out.println(gorilas.getLlistatCuidador());
         System.out.println("");
         
+        /*LLISTAR ELS EXEMPLARS DE LES ESPECIES QUE MENGEN UN ALIMENT*/
+        Exemplar mono1 = new Exemplar("MonoUno", gorilas);
+        Exemplar mono2 = new Exemplar("MonoDos", gorilas);
+        Exemplar mono3 = new Exemplar("MonoTres", gorilas);
+        Exemplar mono4 = new Exemplar("MonoCuatro", gorilas);
+        Aliment manzana = new Aliment(1, "Manzana");
+        Aliment platano = new Aliment(2, "Platano");
         
+        mono1.afegirAlimentExemplar(manzana);
+        mono2.afegirAlimentExemplar(manzana);
+        mono3.afegirAlimentExemplar(manzana);
+        mono4.afegirAlimentExemplar(platano);
+        
+        gorilas.afegirExemplarEspecie(mono1);
+        gorilas.afegirExemplarEspecie(mono2);
+        gorilas.afegirExemplarEspecie(mono3);
+        gorilas.afegirExemplarEspecie(mono4);
+        
+        System.out.println(gorilas.mostrarExemplarsPerAliment(manzana));
     }
 }

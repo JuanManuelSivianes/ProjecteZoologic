@@ -7,6 +7,7 @@ import com.zoologic.exemplar.Exemplar;
 import com.zoologic.zoo.Zoologic;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -402,5 +403,18 @@ public class Especie {
             System.out.println("Aquesta especie no te aquest exemplar.");
             return false;
         }
+    }
+
+    public ArrayList mostrarExemplarsPerAliment(Aliment nomAliment) {
+        ArrayList<String> llistatExemplarsAliment = new ArrayList<>();
+
+        Iterator<Exemplar> it = Especie.this.getLlistatExemplars().iterator();
+        while (it.hasNext()) {
+            Exemplar i = it.next();
+            if (i.getAliments().contains(nomAliment)) {
+                llistatExemplarsAliment.add(i.getNom());
+            }
+        }
+        return llistatExemplarsAliment;
     }
 }
