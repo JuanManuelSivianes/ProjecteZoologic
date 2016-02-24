@@ -219,10 +219,11 @@ public class Especie {
      * Aquest metode afegeix a l'ArrayList de LlistatCuidadorEspecie un
      * cuidador.
      *
-     * @param nomZoologic es el zoologic en el que cercam el cuidador.
+     * @param nomZoologic es el zoologic en el que cercam el cuidador i la
+     * especie.
      * @param nomCuidador és l'objecte cuidador que afegim a la llista.
      * @return true si l'ha pogut afegir i false si el cuidador ja estava a la
-     * llista, el cuidador no esta al zoo, la especie no esta al zoo o si el la
+     * llista, el cuidador no esta al zoo, la especie no esta al zoo o si la
      * especie ja te aquest cuidador.
      */
     public boolean afegirCuidadorEspecie(Zoologic nomZoologic, Cuidador nomCuidador) {
@@ -276,13 +277,14 @@ public class Especie {
      * llista.
      */
     public boolean afegirAlimentEspecie(Aliment nomAliment) {
-        for (Aliment LlistatAliment1 : LlistatAlimentEspecie) {
-            if (LlistatAliment1.equals(nomAliment)) {
-                return false;
-            }
+        if (LlistatAlimentEspecie.contains(nomAliment)) {
+            System.out.println("Aquesta especie ja te aquest aliment.");
+            return false;
+        } else {
+            LlistatAlimentEspecie.add(nomAliment);
+            System.out.println("Aliment afegit correctament a la especie.");
+            return true;
         }
-        LlistatAlimentEspecie.add(nomAliment);
-        return true;
     }
 
     /**
@@ -290,56 +292,71 @@ public class Especie {
      * Si la llista de aliments esta buida retorna false.
      *
      * @param nomAliment és l'objecte aliment que volem eliminar.
-     * @return true si l'ha pogut eliminar i false, si no.
+     * @return false si la llista esta buida, true si l'ha pogut eliminar i
+     * false si la especie no te aquest aliment.
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
         if (LlistatAlimentEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatAlimentEspecie.size(); i++) {
-            if (LlistatAlimentEspecie.get(i).equals(nomAliment)) {
-                LlistatAlimentEspecie.remove(nomAliment);
-                return true;
-            }
+        if (LlistatAlimentEspecie.contains(nomAliment)) {
+            LlistatAlimentEspecie.remove(nomAliment);
+            System.out.println("Aliment eliminat correctament de la especie.");
+            return true;
+        } else {
+            System.out.println("Aquesta especie no te aquest aliment.");
+            return false;
         }
-        return false;
     }
 
     /**
      * Aquest mètode afegeix a l'ArrayList de LlistatEspaisEspecie un espai.
      *
+     * @param nomZoologic
      * @param nomEspai es l'objecte espai que afegim a la llista.
      * @return true si l'ha pogut afegir i false si l'espai ja estava a la
-     * llista.
+     * llista, l'espai no esta al zoo, la especie no esta al zoo o si la especie
+     * ja te aquest espai.
      */
-    public boolean afegirEspaiEspecie(Espai nomEspai) {
-        for (Espai LlistatEspai : LlistatEspaisEspecie) {
-            if (LlistatEspai.equals(nomEspai)) {
+    public boolean afegirEspaiEspecie(Zoologic nomZoologic, Espai nomEspai) {
+        if (nomZoologic.getLlistatEspecies().contains(Especie.this)) {
+            if (nomZoologic.getLlistatEspais().contains(nomEspai)) {
+                if (LlistatEspaisEspecie.contains(nomEspai)) {
+                    System.out.println("Aquesta especie ja te aquest espai.");
+                    return false;
+                }
+            } else {
+                System.out.println("Aquest espai no esta al zoologic.");
                 return false;
             }
+        } else {
+            System.out.println("Aquesta especie no esta al zoologic.");
+            return false;
         }
         LlistatEspaisEspecie.add(nomEspai);
+        System.out.println("Espai afegit correctament a la especie.");
         return true;
     }
 
     /**
-     * Aquest mètode elimnia de l'ArrayList de LlistatEspaisEspecie un espai. Si
-     * la llista de espais esta buida retorna false.
+     * Aquest mètode elimnia de l'ArrayList de LlistatEspaisEspecie un espai.
      *
      * @param nomEspai es l'objecte espai que volem eliminar.
-     * @return true si l'ha pogut eliminar i false, si no.
+     * @return false si la llista esta buida, true si l'ha pogut eliminar i
+     * false si l'espai no esta en la llista.
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {
         if (LlistatEspaisEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatEspaisEspecie.size(); i++) {
-            if (LlistatEspaisEspecie.get(i).equals(nomEspai)) {
-                LlistatEspaisEspecie.remove(nomEspai);
-                return true;
-            }
+        if (LlistatEspaisEspecie.contains(nomEspai)) {
+            LlistatEspaisEspecie.remove(nomEspai);
+            System.out.println("Espai eliminat correctmane de la especie.");
+            return true;
+        } else {
+            System.out.println("Aquesta especie no te aquest espai.");
+            return false;
         }
-        return false;
     }
 
     /**
@@ -347,36 +364,39 @@ public class Especie {
      * exemplar.
      *
      * @param nomExemplar es l'objecte exemplar que afegim a la llista.
-     * @return true si l'ha pogut afegir i false si l'espai ja estava a la
+     * @return true si l'ha pogut afegir i false si l'exemplar ja estava a la
      * llista.
      */
     public boolean afegirExemplarEspecie(Exemplar nomExemplar) {
-        for (Exemplar LlistatExemplar : LlistatExemplarsEspecie) {
-            if (LlistatExemplar.equals(nomExemplar)) {
-                return false;
-            }
+
+        if (LlistatExemplarsEspecie.contains(nomExemplar)) {
+            System.out.println("Aquesta especie ja te aquest exemplar.");
+            return false;
+        } else {
+            LlistatExemplarsEspecie.add(nomExemplar);
+            return true;
         }
-        LlistatExemplarsEspecie.add(nomExemplar);
-        return true;
     }
 
     /**
      * Aquest mètode elimnia de l'ArrayList de LlistatExemplarsEspecie un
-     * exemplar. Si la llista de exemplars esta buida retorna false.
+     * exemplar.
      *
      * @param nomExemplar es l'objecte exemplar que volem eliminar.
-     * @return true si l'ha pogut eliminar i false, si no.
+     * @return false si la llista esta buida, true si l'ha pogut eliminar i
+     * false si l'exemplar no esta en la llista.
      */
     public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
         if (LlistatExemplarsEspecie.isEmpty()) {
             return false;
         }
-        for (int i = 0; i < LlistatExemplarsEspecie.size(); i++) {
-            if (LlistatExemplarsEspecie.get(i).equals(nomExemplar)) {
-                LlistatExemplarsEspecie.remove(nomExemplar);
-                return true;
-            }
+        if (LlistatExemplarsEspecie.contains(nomExemplar)) {
+            LlistatExemplarsEspecie.remove(nomExemplar);
+            System.out.println("Exemplar eliminat correctament de la especie.");
+            return true;
+        } else {
+            System.out.println("Aquesta especie no te aquest exemplar.");
+            return false;
         }
-        return false;
     }
 }
