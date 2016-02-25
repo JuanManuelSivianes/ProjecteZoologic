@@ -25,7 +25,7 @@ public class Proves {
         /*CREAM CINC ESPAIS AMB UN REPETIT*/
         Espai jaula1 = new Espai("Jaula Gorilas", TANCAT);
         Espai jaula2 = new Espai("Jaula Jirafas", TANCAT);
-        Espai aquiario1 = new Espai("Aquiario Orca", AQUARI);
+        Espai aquario1 = new Espai("Aquiario Orca", AQUARI);
         Espai piscina1 = new Espai("Piscina Delfines", PISCINA);
         Espai voladores1 = new Espai("Recinto Aves", VOLADOR);
         /*CREAM CUATRE CUIDADORS*/
@@ -85,31 +85,36 @@ public class Proves {
         tarea6.afegirObservacions("Hacer inventario de comida.");
         tarea7.afegirObservacions("Observar aleta de Fliper.");
         tarea9.afegirObservacions("Devolver a Black Eagle al recinto.");
-        
-        
+
         /*CRIDAM A TOTS ELS METODES*/
-        
         /*AFEIM ESPAIS AL ZOOLOGIC*/
         marineland.afegirEspaiZoologic(jaula1);
         marineland.afegirEspaiZoologic(jaula2);
-        marineland.afegirEspaiZoologic(aquiario1);
+        marineland.afegirEspaiZoologic(aquario1);
         marineland.afegirEspaiZoologic(piscina1);
         marineland.afegirEspaiZoologic(voladores1);
-        
+
         /*AFEGIM LES ESPECIES AL ZOOLOGIC*/
         marineland.afegirEspeciesZoologic(gorilas);
         marineland.afegirEspeciesZoologic(girafas);
         marineland.afegirEspeciesZoologic(orcas);
         marineland.afegirEspeciesZoologic(delfines);
         marineland.afegirEspeciesZoologic(aguilas);
-        
+
+        /*AFEGIM LES ESPECIES ALS ESPAIS, DOS PER ESPECIE*/
+        gorilas.afegirEspaiEspecie(marineland, jaula1);
+        girafas.afegirEspaiEspecie(marineland, jaula2);
+        orcas.afegirEspaiEspecie(marineland, aquario1);
+        delfines.afegirEspaiEspecie(marineland, piscina1);
+        aguilas.afegirEspaiEspecie(marineland, voladores1);
+
         /*AFEGIM ELS ALIMENTS A LES ESPECIES*/
         gorilas.afegirAlimentEspecie(platano);
         girafas.afegirAlimentEspecie(arandanos);
         orcas.afegirAlimentEspecie(placton);
         delfines.afegirAlimentEspecie(sardinas);
         aguilas.afegirAlimentEspecie(ratones);
-        
+
         /*AFEGIM ELS EXEMPLARS A LES ESPECIES*/
         gorilas.afegirExemplarEspecie(mono1);
         gorilas.afegirExemplarEspecie(mono2);
@@ -121,40 +126,43 @@ public class Proves {
         delfines.afegirExemplarEspecie(delfin2);
         aguilas.afegirExemplarEspecie(aguila1);
         aguilas.afegirExemplarEspecie(aguila2);
-        
+
         /*AFEGIM ELS ALIMENTS ALS EXEMPLARS*/
         mono1.afegirAlimentExemplar(manzana);
         mono2.afegirAlimentExemplar(cacahuetes);
         girafa1.afegirAlimentExemplar(eucaliptus);
         girafa2.afegirAlimentExemplar(naranjas);
+        girafa2.afegirAlimentExemplar(manzana);
         orca1.afegirAlimentExemplar(pezPayaso);
         orca2.afegirAlimentExemplar(pezGlobo);
         delfin1.afegirAlimentExemplar(cranc);
+        delfin1.afegirAlimentExemplar(pezPayaso);
         delfin2.afegirAlimentExemplar(dorada);
         aguila1.afegirAlimentExemplar(hamster);
+        aguila2.afegirAlimentExemplar(manzana);
         aguila2.afegirAlimentExemplar(conejo);
-        
+
         /*AFEGIM ELS CUIDADORS AL ZOOLOGIC*/
         marineland.afegirCuidadorsZoologics(toni);
         marineland.afegirCuidadorsZoologics(xavi);
         marineland.afegirCuidadorsZoologics(sivi);
         marineland.afegirCuidadorsZoologics(jesus);
         marineland.afegirCuidadorsZoologics(osvaldo);
-        
+
         /*AFEGIM ELS CUIDADORS A LES ESPECIES*/
         gorilas.afegirCuidadorEspecie(marineland, toni);
         girafas.afegirCuidadorEspecie(marineland, xavi);
         orcas.afegirCuidadorEspecie(marineland, sivi);
         delfines.afegirCuidadorEspecie(marineland, jesus);
         aguilas.afegirCuidadorEspecie(marineland, osvaldo);
-        
+
         /*AFEGIM LES ESPCECIES ALS CUIDADORS*/
         toni.afegirEspecieCuidador(marineland, gorilas);
         xavi.afegirEspecieCuidador(marineland, girafas);
         sivi.afegirEspecieCuidador(marineland, orcas);
         jesus.afegirEspecieCuidador(marineland, delfines);
         osvaldo.afegirEspecieCuidador(marineland, aguilas);
-        
+
         /*AFEGIM LES TASQUES ALS CUIDADORS*/
         toni.afegirTasca(tarea1);
         toni.afegirTasca(tarea2);
@@ -166,6 +174,30 @@ public class Proves {
         jesus.afegirTasca(tarea8);
         osvaldo.afegirTasca(tarea9);
         osvaldo.afegirTasca(tarea10);
+
+        /*GESTIO DEL PARC*/
+        System.out.println("LLISTAR ELS CUIDADORS:");
+        System.out.println(marineland.getLlistatCuidadors());
+        System.out.println("LLISTAR ELS ESPAIS ON VIU UNA CERTA ESPECIE:");
+        System.out.println(gorilas.getLlistatEspais());
+        System.out.println(girafas.getLlistatEspais());
+        System.out.println(orcas.getLlistatEspais());
+        System.out.println(delfines.getLlistatEspais());
+        System.out.println(aguilas.getLlistatEspais());
+        System.out.println("LLISTAR ELS ESPAIS D'UN CERT TIPUS:");
+        System.out.println(marineland.mostrarTipusEspaiZoologic(TANCAT));
+        System.out.println(marineland.mostrarTipusEspaiZoologic(PISCINA));
+        System.out.println(marineland.mostrarTipusEspaiZoologic(AQUARI));
+        System.out.println(marineland.mostrarTipusEspaiZoologic(VOLADOR));
+        System.out.println("LLISTAR ELS CUIDADORS D'UNA ESPECIE:");
+        System.out.println(gorilas.getLlistatCuidador());
+        System.out.println(girafas.getLlistatCuidador());
+        System.out.println(orcas.getLlistatCuidador());
+        System.out.println(delfines.getLlistatCuidador());
+        System.out.println(aguilas.getLlistatCuidador());
+        System.out.println("LLISTAR ELS EXEMPLARS QUE MENGEN UN DETERMINAT ALIMENT:");
+        System.out.println(marineland.mostrarExemplarsPerAliment(manzana));
+        System.out.println(marineland.mostrarExemplarsPerAliment(pezPayaso));
     }
 
     /**
@@ -173,7 +205,7 @@ public class Proves {
      */
     public static void main(String[] args) {
         Proves creador = new Proves();
-        
+
         creador.inicialitzacioZoologic();
     }
 }
