@@ -25,7 +25,7 @@ public class Proves {
      * aliments per exemplar i 2 tasques per cuidador.
      *
      */
-    public void inicialitzacioZoologic() {
+    public static void inicialitzacioZoologic() {
         /*CREAM UN ZOOLOGIC*/
         Zoologic marineland = new Zoologic("Marineland");
         /*CREAM CINC ESPAIS AMB UN REPETIT*/
@@ -210,8 +210,6 @@ public class Proves {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Proves creador = new Proves();
-
-        creador.inicialitzacioZoologic();
+        inicialitzacioZoologic();
     }
 }
