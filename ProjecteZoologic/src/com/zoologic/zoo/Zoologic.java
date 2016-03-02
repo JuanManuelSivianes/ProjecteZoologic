@@ -38,19 +38,19 @@ public class Zoologic {
     /**
      * Llistat dels zoologics creats.
      */
-    private static HashMap<Integer, String> LlistatZoologics;
+    private static HashMap<Integer, String> llistatZoologics;
     /**
      * Llistat de les especies de un zoologic.
      */
-    private final HashSet<Especie> LlistatEspecies;
+    private final HashSet<Especie> llistatEspeciesZoologic;
     /**
      * Llistat dels cuidadors de un zoologic.
      */
-    private final HashSet<Cuidador> LlistatCuidadors;
+    private final HashSet<Cuidador> llistatCuidadorsZoologic;
     /**
      * Llistat dels espais de un zoologic.
      */
-    private final HashSet<Espai> LlistatEspais;
+    private final HashSet<Espai> llistatEspaisZoologic;
 
     /**
      * obtenim el valor assignat a l'atribut "nom".
@@ -68,7 +68,7 @@ public class Zoologic {
      * @param nomZoologic nom del zoologic.
      */
     public void setNomZoologic(String nomZoologic) {
-        if (LlistatZoologics.containsValue(nomZoologic)) {
+        if (llistatZoologics.containsValue(nomZoologic)) {
             System.out.println("Aquest nom ja esta agafat.");
         } else {
             this.nomZoologic = nomZoologic;
@@ -90,7 +90,7 @@ public class Zoologic {
      * @return valors del mapa de zoologics.
      */
     public HashMap<Integer, String> getLlistatZoologics() {
-        return LlistatZoologics;
+        return llistatZoologics;
     }
 
     /**
@@ -99,7 +99,7 @@ public class Zoologic {
      * @return valors de la llista d'especies de un zoologic.
      */
     public HashSet<Especie> getLlistatEspecies() {
-        return LlistatEspecies;
+        return llistatEspeciesZoologic;
     }
 
     /**
@@ -108,7 +108,7 @@ public class Zoologic {
      * @return valors de la llista de cuidadors de un zoologic.
      */
     public HashSet<Cuidador> getLlistatCuidadors() {
-        return LlistatCuidadors;
+        return llistatCuidadorsZoologic;
     }
 
     /**
@@ -117,7 +117,7 @@ public class Zoologic {
      * @return valors de la llista d'espais de un zoologic.
      */
     public HashSet<Espai> getLlistatEspais() {
-        return LlistatEspais;
+        return llistatEspaisZoologic;
     }
 
     /**
@@ -129,10 +129,10 @@ public class Zoologic {
     public Zoologic(String nomZoologic) {
         this.nomZoologic = nomZoologic;
         this.idZoologic = contadorZoologics++;
-        Zoologic.LlistatZoologics = new HashMap<>();
-        this.LlistatEspecies = new HashSet<>();
-        this.LlistatCuidadors = new HashSet<>();
-        this.LlistatEspais = new HashSet<>();
+        Zoologic.llistatZoologics = new HashMap<>();
+        this.llistatEspeciesZoologic = new HashSet<>();
+        this.llistatCuidadorsZoologic = new HashSet<>();
+        this.llistatEspaisZoologic = new HashSet<>();
     }
 
     /**
@@ -154,11 +154,11 @@ public class Zoologic {
      * el zoologic ja estava en la llista.
      */
     public boolean afegirZoologic(Zoologic nomZoologic) {
-        if (LlistatZoologics.containsValue(nomZoologic.getNomZoologic())) {
+        if (llistatZoologics.containsValue(nomZoologic.getNomZoologic())) {
             System.out.println("Zoologic duplicat.");
             return false;
         } else {
-            LlistatZoologics.put(idZoologic, nomZoologic.getNomZoologic());
+            llistatZoologics.put(idZoologic, nomZoologic.getNomZoologic());
             System.out.println("Zoologic afegit correctament.");
             return true;
         }
@@ -171,8 +171,8 @@ public class Zoologic {
      * @return true si el zoologic s'ha pogut eliminar i false si no.
      */
     public boolean eliminarZoologic(Zoologic nomZoologic) {
-        if (LlistatZoologics.containsValue(nomZoologic.getNomZoologic())) {
-            LlistatZoologics.remove(nomZoologic.getIdZoologic());
+        if (llistatZoologics.containsValue(nomZoologic.getNomZoologic())) {
+            llistatZoologics.remove(nomZoologic.getIdZoologic());
             System.out.println("Zoologic eliminat correctament de la llista");
             return true;
         } else {
@@ -189,7 +189,7 @@ public class Zoologic {
      * l¡espai ja estava en la llista del zoologic.
      */
     public boolean afegirEspaiZoologic(Espai nomEspai) {
-        if (LlistatEspais.add(nomEspai)) {
+        if (llistatEspaisZoologic.add(nomEspai)) {
             System.out.println("Espai afegit correctament al zoo.");
             return true;
         } else {
@@ -205,8 +205,8 @@ public class Zoologic {
      * @return true si l'espai s'ha pogut eliminar i false si no.
      */
     public boolean eliminarEspaiZoologic(Espai nomEspai) {
-        if (LlistatEspais.contains(nomEspai)) {
-            LlistatEspais.remove(nomEspai);
+        if (llistatEspaisZoologic.contains(nomEspai)) {
+            llistatEspaisZoologic.remove(nomEspai);
             System.out.println("Espai eliminat correctament del zoo.");
             return true;
         } else {
@@ -225,7 +225,7 @@ public class Zoologic {
     public ArrayList mostrarTipusEspaiZoologic(TipusEspai tipusEspai) {
         ArrayList listadoEspacios = new ArrayList();
 
-        Iterator<Espai> itr = LlistatEspais.iterator();
+        Iterator<Espai> itr = llistatEspaisZoologic.iterator();
         while (itr.hasNext()) {
             Espai o = itr.next();
             if (o.getTipus().equals(tipusEspai)) {
@@ -243,7 +243,7 @@ public class Zoologic {
      * la especie ja estava en la llista del zoologic.
      */
     public boolean afegirEspeciesZoologic(Especie nomEspecie) {
-        if (LlistatEspecies.add(nomEspecie)) {
+        if (llistatEspeciesZoologic.add(nomEspecie)) {
             System.out.println("Especie afegida correctament.");
             return true;
         } else {
@@ -259,8 +259,8 @@ public class Zoologic {
      * @return true si la especie s'ha pogut eliminar i false si no.
      */
     public boolean eliminarEspecieZoologic(Especie nomEspecie) {
-        if (LlistatEspecies.contains(nomEspecie)) {
-            LlistatEspecies.remove(nomEspecie);
+        if (llistatEspeciesZoologic.contains(nomEspecie)) {
+            llistatEspeciesZoologic.remove(nomEspecie);
             System.out.println("Especie eliminada correctament del zoo.");
             return true;
         } else {
@@ -277,7 +277,7 @@ public class Zoologic {
      * el cuidador ja estava en la llista del zoologic.
      */
     public boolean afegirCuidadorsZoologics(Cuidador nomCuidador) {
-        if (LlistatCuidadors.add(nomCuidador)) {
+        if (llistatCuidadorsZoologic.add(nomCuidador)) {
             System.out.println("Cuidador afegit correctament al zoo.");
             return true;
         } else {
@@ -293,8 +293,8 @@ public class Zoologic {
      * @return true si el cuidador s'ha pogut eliminar i false si no.
      */
     public boolean eliminarCuidadorsZoologic(Cuidador nomCuidador) {
-        if (LlistatCuidadors.contains(nomCuidador)) {
-            LlistatCuidadors.remove(nomCuidador);
+        if (llistatCuidadorsZoologic.contains(nomCuidador)) {
+            llistatCuidadorsZoologic.remove(nomCuidador);
             System.out.println("Cuidador eliminat correctament del zoo.");
             return true;
         } else {
@@ -315,7 +315,7 @@ public class Zoologic {
     public ArrayList mostrarExemplarsPerAliment(Aliment nomAliment) {
         ArrayList<String> llistatExemplarsAliment = new ArrayList<>();
 
-        Iterator<Especie> especie = LlistatEspecies.iterator();
+        Iterator<Especie> especie = llistatEspeciesZoologic.iterator();
         while (especie.hasNext()) {
             Especie i = especie.next();
             Iterator<Exemplar> exemplar = i.getLlistatExemplars().iterator();

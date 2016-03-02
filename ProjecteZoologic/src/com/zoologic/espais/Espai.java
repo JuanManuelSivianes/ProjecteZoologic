@@ -17,58 +17,58 @@ public class Espai {
     /**
      * Nom de l'espai.
      */
-    private String nom;
+    private String nomEspai;
 
     /**
-     * El tipus de espai que és.
+     * El tipusDelEspai de espai que és.
      */
-    private TipusEspai tipus;
+    private TipusEspai tipusDelEspai;
 
     /**
-     * Obtenim el valor assignat a l'atribut "nom".
+     * Obtenim el valor assignat a l'atribut "nomEspai".
      *
-     * @return nom de l'espai.
+     * @return nomEspai de l'espai.
      */
     public String getNom() {
-        return nom;
+        return nomEspai;
     }
 
     /**
-     * Assignam el valor a l'atribut "nom"
+     * Assignam el valor a l'atribut "nomEspai"
      *
-     * @param nom nom de l'espai.
+     * @param nom nomEspai de l'espai.
      */
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomEspai = nom;
     }
 
     /**
      * Obtenim el valor assignat a l'atribut "Tipus".
      *
-     * @return el tipus de espai que és.
+     * @return el tipusDelEspai de espai que és.
      */
     public TipusEspai getTipus() {
-        return tipus;
+        return tipusDelEspai;
     }
 
     /**
-     * Assignam el valor a l'atribut tipus.
+     * Assignam el valor a l'atribut tipusDelEspai.
      *
-     * @param tipus el tipus de espai que és.
+     * @param tipus el tipusDelEspai de espai que és.
      */
     public void setTipus(TipusEspai tipus) {
-        this.tipus = tipus;
+        this.tipusDelEspai = tipus;
     }
 
     /**
-     * Constructor de Espai amb els parametres nom i tipus d'espai.
+     * Constructor de Espai amb els parametres nomEspai i tipusDelEspai d'espai.
      *
-     * @param nom el nom del espai.
-     * @param tipus el tipus de espai.
+     * @param nom el nomEspai del espai.
+     * @param tipus el tipusDelEspai de espai.
      */
     public Espai(String nom, TipusEspai tipus) {
-        this.nom = nom;
-        this.tipus = tipus;
+        this.nomEspai = nom;
+        this.tipusDelEspai = tipus;
     }
 
     /**
@@ -79,13 +79,13 @@ public class Espai {
      */
     @Override
     public String toString() {
-        return "Espai{" + "nom=" + nom + ", tipus=" + tipus + '}';
+        return "Espai{" + "nom=" + nomEspai + ", tipus=" + tipusDelEspai + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.nom);
+        hash = 67 * hash + Objects.hashCode(this.nomEspai);
         return hash;
     }
 
@@ -98,6 +98,6 @@ public class Espai {
             return false;
         }
         final Espai other = (Espai) obj;
-        return Objects.equals(this.nom, other.nom);
+        return Objects.equals(this.nomEspai, other.nomEspai);
     }
 }

@@ -15,7 +15,7 @@ public class Exemplar {
     /**
      * ID de l'exemplar.
      */
-    private int id;
+    private int idExemplar;
     /**
      * Contador de exemplars creats.
      */
@@ -23,41 +23,41 @@ public class Exemplar {
     /**
      * Nom de l'exemplar.
      */
-    private String nom;
+    private String nomExemplar;
     /**
      * Especie a la que pertany l'exemplar.
      */
-    private Especie nomEspecie;
+    private Especie nomEspecieExemplar;
     /**
      * ArrayList del aliments de l'exemplar.
      */
-    private ArrayList<Aliment> LlistatAliments;
+    private ArrayList<Aliment> llistatAlimentsExemplar;
 
     /**
-     * Obtenim el valor assignat a l'atribut "id".
+     * Obtenim el valor assignat a l'atribut "idEspecie".
      *
      * @return codi d'idenfiticacio de l'exemplar.
      */
     public int getId() {
-        return id;
+        return idExemplar;
     }
 
     /**
-     * Obtenir el valor assignat a l'atribut "nom"
+     * Obtenir el valor assignat a l'atribut "nomExemplar"
      *
-     * @return nom de l'exemplar.
+     * @return nomExemplar de l'exemplar.
      */
     public String getNom() {
-        return nom;
+        return nomExemplar;
     }
 
     /**
-     * Assignam el valor a l'atribut "nom"
+     * Assignam el valor a l'atribut "nomExemplar"
      *
-     * @param nom és el nom que reb l'exemplar
+     * @param nom és el nomExemplar que reb l'exemplar
      */
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomExemplar = nom;
     }
 
     /**
@@ -66,40 +66,40 @@ public class Exemplar {
      * @return llista de aliments.
      */
     public ArrayList<Aliment> getAliments() {
-        return LlistatAliments;
+        return llistatAlimentsExemplar;
     }
 
     /**
      * Obtenir el valor assigntat a l'atribut "nomEspecie".
      *
-     * @return nom de l'especie de la cual pertany l'exemplar.
+     * @return nomExemplar de l'especie de la cual pertany l'exemplar.
      */
     public Especie getEspecie() {
-        return nomEspecie;
+        return nomEspecieExemplar;
     }
 
     /**
      * Assignam un valor a l'atribut "nomEspecie".
      *
-     * @param especie és el nom de l'especie de la cual pertany l'exemplar.
+     * @param especie és el nomExemplar de l'especie de la cual pertany l'exemplar.
      */
     public void setEspecie(Especie especie) {
-        this.nomEspecie = especie;
+        this.nomEspecieExemplar = especie;
     }
 
     /**
-     * És el constructor de Exemplar amb els parametres nom i nomEspecie.
-     * L'atribut id es inicialtizat amb un increment de l'atribut contador.
-     * Inicialitzam la llista de la classe.
+     * És el constructor de Exemplar amb els parametres nomExemplar i nomEspecie.
+     * L'atribut idEspecie es inicialtizat amb un increment de l'atribut contador.
+ Inicialitzam la llista de la classe.
      *
-     * @param nom és el nom que té un exemplar.
-     * @param nomEspecie és el nom de l'especie que té l'exemplar.
+     * @param nom és el nomExemplar que té un exemplar.
+     * @param nomEspecie és el nomExemplar de l'especie que té l'exemplar.
      */
     public Exemplar(String nom, Especie nomEspecie) {
-        this.id = contadorExemplars++;
-        this.nom = nom;
-        this.nomEspecie = nomEspecie;
-        this.LlistatAliments = new ArrayList<>();
+        this.idExemplar = contadorExemplars++;
+        this.nomExemplar = nom;
+        this.nomEspecieExemplar = nomEspecie;
+        this.llistatAlimentsExemplar = new ArrayList<>();
     }
 
     /**
@@ -110,14 +110,14 @@ public class Exemplar {
      */
     @Override
     public String toString() {
-        return "Exemplar{" + "id=" + id + ", nom=" + nom + ", especie=" + nomEspecie + ", aliments=" + LlistatAliments + '}';
+        return "Exemplar{" + "id=" + idExemplar + ", nom=" + nomExemplar + ", especie=" + nomEspecieExemplar + ", aliments=" + llistatAlimentsExemplar + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.nom);
-        hash = 11 * hash + Objects.hashCode(this.nomEspecie);
+        hash = 11 * hash + Objects.hashCode(this.nomExemplar);
+        hash = 11 * hash + Objects.hashCode(this.nomEspecieExemplar);
         return hash;
     }
 
@@ -130,10 +130,10 @@ public class Exemplar {
             return false;
         }
         final Exemplar other = (Exemplar) obj;
-        if (!Objects.equals(this.nom, other.nom)) {
+        if (!Objects.equals(this.nomExemplar, other.nomExemplar)) {
             return false;
         }
-        if (!Objects.equals(this.nomEspecie, other.nomEspecie)) {
+        if (!Objects.equals(this.nomEspecieExemplar, other.nomEspecieExemplar)) {
             return false;
         }
         return true;
@@ -147,11 +147,11 @@ public class Exemplar {
      * llista.
      */
     public boolean afegirAlimentExemplar(Aliment nomAliment) {
-        if (LlistatAliments.contains(nomAliment)) {
+        if (llistatAlimentsExemplar.contains(nomAliment)) {
             System.out.println("Aquest exemplar ja te aquest aliment.");
             return false;
         } else {
-            LlistatAliments.add(nomAliment);
+            llistatAlimentsExemplar.add(nomAliment);
             System.out.println("Aliment afegit correctament a l'exemplar.");
             return true;
         }
@@ -164,12 +164,12 @@ public class Exemplar {
      * @return true si l'ha pogut eliminar i false, si no.
      */
     public boolean eliminarAlimentExemplar(Aliment nomAliment) {
-        if (LlistatAliments.isEmpty()) {
+        if (llistatAlimentsExemplar.isEmpty()) {
             System.out.println("Aquest exemplar no te cap aliment.");
             return false;
         }
-        if (LlistatAliments.contains(nomAliment)) {
-            LlistatAliments.remove(nomAliment);
+        if (llistatAlimentsExemplar.contains(nomAliment)) {
+            llistatAlimentsExemplar.remove(nomAliment);
             System.out.println("Aliment aliminat correctament de l'exemplar.");
             return true;
         } else {

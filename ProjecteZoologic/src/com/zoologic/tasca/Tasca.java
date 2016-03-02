@@ -15,19 +15,19 @@ public class Tasca {
     /**
      * Descripcio de la tasca.
      */
-    private String descripcio;
+    private String descripcioTasca;
     /**
      * Observacions de la tasca.
      */
-    private String observacions;
+    private String observacionsTasca;
 
     /**
      * Obtenim el valor assignat a l'atribut "Descripcio".
      *
-     * @return descripcio de la tasca.
+     * @return descripcioTasca de la tasca.
      */
     public String getDescripcio() {
-        return descripcio;
+        return descripcioTasca;
     }
 
     /**
@@ -36,7 +36,7 @@ public class Tasca {
      * @param descripcio de la tasca.
      */
     public void setDescripcio(String descripcio) {
-        this.descripcio = descripcio;
+        this.descripcioTasca = descripcio;
     }
 
     /**
@@ -45,26 +45,26 @@ public class Tasca {
      * @param observacions de la tasca.
      */
     public void setObservacions(String observacions) {
-        this.observacions = observacions;
+        this.observacionsTasca = observacions;
     }
 
     /**
      * Obtenim el valor assignat a l'atribut "Observacions".
      *
-     * @return observacions de la tasca.
+     * @return observacionsTasca de la tasca.
      */
     public String getObservacions() {
-        return observacions;
+        return observacionsTasca;
     }
 
     /**
-     * Constructor de Tasca amb el parametre descripcio. Les observacions son
-     * opcionasl, per aixo no estan al constructor.
+     * Constructor de Tasca amb el parametre descripcioTasca. Les observacionsTasca son
+ opcionasl, per aixo no estan al constructor.
      *
      * @param descripcio de la tasca.
      */
     public Tasca(String descripcio) {
-        this.descripcio = descripcio;
+        this.descripcioTasca = descripcio;
     }
 
     /**
@@ -75,11 +75,11 @@ public class Tasca {
      */
     @Override
     public String toString() {
-        return "Tasca{" + "descripcio=" + descripcio + ", observacions=" + observacions + '}';
+        return "Tasca{" + "descripcio=" + descripcioTasca + ", observacions=" + observacionsTasca + '}';
     }
 
     /**
-     * Métode que afegeix una cadena a la variable observacions de la tasca.
+     * Métode que afegeix una cadena a la variable observacionsTasca de la tasca.
      *
      * @param observacio és la cadena que afegim.
      * @return true si la afegit i false si no.
@@ -92,7 +92,7 @@ public class Tasca {
     }
 
     /**
-     * Métode que elimina una cadena de la variable observacions de la tasca.
+     * Métode que elimina una cadena de la variable observacionsTasca de la tasca.
      *
      * @param observacion és la cadena que eliminam.
      * @return true si la pogut eliminar i false si no.

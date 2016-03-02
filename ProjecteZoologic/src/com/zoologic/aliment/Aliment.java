@@ -10,118 +10,118 @@ import java.util.ArrayDeque;
 public class Aliment {
 
     /**
-     * És la id de l'aliment.
+     * És la idAliment de l'aliment.
      */
-    private int id;
+    private int idAliment;
     /**
-     * És el nom de l'aliment.
+     * És el nomAliment de l'aliment.
      */
-    private String nom;
+    private String nomAliment;
     /**
      * És la llista que conté la preparació de l'aliment.
      */
-    private ArrayDeque<String> preparacio;
+    private ArrayDeque<String> preparacioAliment;
 
     /**
-     * Obtenim el valor assignat a l'atribut "id".
+     * Obtenim el valor assignat a l'atribut "idAliment".
      *
-     * @return ens torna el valor assignat a l'atribut "id".
+     * @return ens torna el valor assignat a l'atribut "idAliment".
      */
     public int getId() {
-        return id;
+        return idAliment;
     }
 
     /**
-     * Assignam un valor a l'atribut "id".
+     * Assignam un valor a l'atribut "idAliment".
      *
      * @param id és el codi d'identificació que té un aliment.
      */
     public void setId(int id) {
-        this.id = id;
+        this.idAliment = id;
     }
 
     /**
-     * Obtenim el valor assignat a l'atribut "nom".
+     * Obtenim el valor assignat a l'atribut "nomAliment".
      *
-     * @return ens torna el valor assignat a l'atribut "nom".
+     * @return ens torna el valor assignat a l'atribut "nomAliment".
      */
     public String getNom() {
-        return nom;
+        return nomAliment;
     }
 
     /**
-     * Assignam un valor a l'atribut "nom".
+     * Assignam un valor a l'atribut "nomAliment".
      *
-     * @param nom és el nom que té un aliment.
+     * @param nom és el nomAliment que té un aliment.
      */
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomAliment = nom;
     }
 
     /**
-     * Obtenir els valors assignats a l'atribut "preparacio".
+     * Obtenir els valors assignats a l'atribut "preparacioAliment".
      *
-     * @return ens torna els valors assignats a l'atribut "preparacio".
+     * @return ens torna els valors assignats a l'atribut "preparacioAliment".
      */
     public ArrayDeque<String> getPreparacio() {
-        return preparacio;
+        return preparacioAliment;
     }
 
     /**
-     * Assignar uns valors a l'atribut "preparacio".
+     * Assignar uns valors a l'atribut "preparacioAliment".
      *
      * @param preparacio és la receta que té un aliment.
      */
     public void setPreparacio(ArrayDeque<String> preparacio) {
-        this.preparacio = preparacio;
+        this.preparacioAliment = preparacio;
     }
 
     /**
-     * És el constructor dels atributs id i nom. Inicialitzam la llistes.
+     * És el constructor dels atributs idAliment i nomAliment. Inicialitzam la llistes.
      *
      * @param id és el codi d'identificació que té un aliment.
-     * @param nom és el nom que reb un aliment.
+     * @param nom és el nomAliment que reb un aliment.
      */
     public Aliment(int id, String nom) {
-        this.id = id;
-        this.nom = nom;
-        this.preparacio = new ArrayDeque<>();
+        this.idAliment = id;
+        this.nomAliment = nom;
+        this.preparacioAliment = new ArrayDeque<>();
     }
 
     /**
      * És el mètode que retorna una cadena que representa l'objecte Aliment.
      *
-     * @return ens torna "Aliment {id= "el codi que té l'aliment", nom= "el nom
-     * que té l'aliment", preparacio= "la receta que té l'aliment".
+     * @return ens torna "Aliment {idAliment= "el codi que té l'aliment", nomAliment= "el nomAliment
+ que té l'aliment", preparacioAliment= "la receta que té l'aliment".
      */
     @Override
     public String toString() {
-        return "Aliment{" + "id=" + id + ", nom=" + nom + ", preparacio=" + preparacio + '}';
+        return "Aliment{" + "id=" + idAliment + ", nom=" + nomAliment + ", preparacio=" + preparacioAliment + '}';
     }
 
     /**
-     * Aquest métode afegeix una cadena a l'ArrayList preparacio.
+     * Aquest métode afegeix una cadena a l'ArrayList preparacioAliment.
      *
      * @param pas és la cadena que afegim a la llista.
      * @return true si la pogut afegir i false si no.
      */
     public boolean afegirPreparacio(String pas) {
-        if (preparacio.contains(pas)) {
+        if (preparacioAliment.contains(pas)) {
             return false;
         } else {
-            preparacio.add(pas);
+            preparacioAliment.add(pas);
             return true;
         }
     }
 
     /**
-     * Aquest métode elimina una cadena de l'ArrayList preparacio.
+     * Aquest métode elimina una cadena de l'ArrayList preparacioAliment.
      *
      * @param pas és la cadena que eliminam de la llista.
      * @return true si la pogut eliminar i false si no.
      */
     public boolean eliminarPreparacio(String pas) {
-        if (preparacio.remove(pas)) {
+        if (preparacioAliment.remove(pas)) {
             return true;
         } else {
             return false;

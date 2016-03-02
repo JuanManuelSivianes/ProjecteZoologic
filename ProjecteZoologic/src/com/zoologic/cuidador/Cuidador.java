@@ -17,45 +17,45 @@ public class Cuidador {
     /**
      * ID del cuidador.
      */
-    private int id;
+    private int idCuidador;
     /**
      * Nom del cuidador.
      */
-    private String nom;
+    private String nomCuidador;
     /**
      * Llistat de les tasques del cuidador.
      */
-    private final ArrayDeque<Tasca> LlistatTasques;
+    private final ArrayDeque<Tasca> llistatTasquesCuidador;
     /**
      * Llistat de les especies del cuidador.
      */
-    private final ArrayList<Especie> LlistatEspecies;
+    private final ArrayList<Especie> llistatEspeciesCuidador;
 
     /**
-     * Obtenim el valor assignat a l'atribut "id".
+     * Obtenim el valor assignat a l'atribut "idCuidador".
      *
-     * @return id de l'empleat.
+     * @return idCuidador de l'empleat.
      */
     public int getId() {
-        return id;
+        return idCuidador;
     }
 
     /**
-     * Obtenim el valor assignat a l'atribut "nom".
+     * Obtenim el valor assignat a l'atribut "nomCuidador".
      *
-     * @return nom de l'empleat.
+     * @return nomCuidador de l'empleat.
      */
     public String getNom() {
-        return nom;
+        return nomCuidador;
     }
 
     /**
-     * Assignam el valor a l'atribut "nom"
+     * Assignam el valor a l'atribut "nomCuidador"
      *
-     * @param nom és el nom del cuidador.
+     * @param nom és el nomCuidador del cuidador.
      */
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomCuidador = nom;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Cuidador {
      * @return llista de tasques.
      */
     public ArrayDeque<Tasca> getLlistatTasques() {
-        return LlistatTasques;
+        return llistatTasquesCuidador;
     }
 
     /**
@@ -73,21 +73,21 @@ public class Cuidador {
      * @return llista de especies.
      */
     public ArrayList<Especie> getLlistatEspecies() {
-        return LlistatEspecies;
+        return llistatEspeciesCuidador;
     }
 
     /**
-     * És el constructor de Cuidador amb el parametre nom. Inicialitzam les dues
+     * És el constructor de Cuidador amb el parametre nomCuidador. Inicialitzam les dues
      * llistes.
      *
-     * @param id es el id del cuidador.
-     * @param nom és el nom del cuidador.
+     * @param id es el idCuidador del cuidador.
+     * @param nom és el nomCuidador del cuidador.
      */
     public Cuidador(int id, String nom) {
-        this.id = id;
-        this.nom = nom;
-        LlistatTasques = new ArrayDeque<>();
-        LlistatEspecies = new ArrayList<>();
+        this.idCuidador = id;
+        this.nomCuidador = nom;
+        llistatTasquesCuidador = new ArrayDeque<>();
+        llistatEspeciesCuidador = new ArrayList<>();
     }
 
     /**
@@ -98,12 +98,12 @@ public class Cuidador {
      */
     @Override
     public String toString() {
-        return "Cuidador{" + "id=" + id + ", nom=" + nom + '}';
+        return "Cuidador{" + "id=" + idCuidador + ", nom=" + nomCuidador + '}';
     }
 
     @Override
     public int hashCode() {
-        return this.id;
+        return this.idCuidador;
     }
 
     @Override
@@ -115,11 +115,11 @@ public class Cuidador {
             return false;
         }
         final Cuidador other = (Cuidador) obj;
-        return this.id == other.id;
+        return this.idCuidador == other.idCuidador;
     }
 
     /**
-     * Aquest metode afegeix a l'ArrayDeque de LlistatTasques una tasca nova.
+     * Aquest metode afegeix a l'ArrayDeque de llistatTasquesCuidador una tasca nova.
      *
      * @param nomTasca és la tasca que afegim a la llista.
      * @return true si l'ha pogut afegir i false si la tasca ja esta a la
@@ -127,7 +127,7 @@ public class Cuidador {
      */
     public boolean afegirTasca(Tasca nomTasca) {
 
-        Iterator<Tasca> it = LlistatTasques.iterator();
+        Iterator<Tasca> it = llistatTasquesCuidador.iterator();
         while (it.hasNext()) {
             Tasca i = it.next();
             if (i.getDescripcio().equals(nomTasca.getDescripcio())) {
@@ -135,25 +135,25 @@ public class Cuidador {
                 return false;
             }
         }
-        LlistatTasques.add(nomTasca);
+        llistatTasquesCuidador.add(nomTasca);
         System.out.println("Tasca afegida correctament al cuidador.");
         return true;
     }
 
     /**
-     * Aquest metode elimina a l'ArrayDeque de LlistatTasques una tasca
-     * nova.Elimina la primera tasca que esta en la coa.
+     * Aquest metode elimina a l'ArrayDeque de llistatTasquesCuidador una tasca
+ nova.Elimina la primera tasca que esta en la coa.
      *
      * @return true si l'ha pogut eliminar i false, si no. Si la llista de
      * tasques esta buida retorna false.
      */
     public boolean eliminarTasca() {
 
-        if (LlistatTasques.isEmpty()) {
+        if (llistatTasquesCuidador.isEmpty()) {
             System.out.println("Aquest cuidador no te cap tasca.");
             return false;
         } else {
-            LlistatTasques.remove();
+            llistatTasquesCuidador.remove();
             System.out.println("Tasca eliminada correctament del cuidador.");
             return true;
         }
@@ -172,7 +172,7 @@ public class Cuidador {
 
         if (nomZoologic.getLlistatCuidadors().contains(Cuidador.this)) {
             if (nomZoologic.getLlistatEspecies().contains(nomEspecie)) {
-                if (LlistatEspecies.contains(nomEspecie)) {
+                if (llistatEspeciesCuidador.contains(nomEspecie)) {
                     System.out.println("Aquest cuidador ja te aquesta especie.");
                     return false;
                 }
@@ -185,7 +185,7 @@ public class Cuidador {
             return false;
         }
 
-        LlistatEspecies.add(nomEspecie);
+        llistatEspeciesCuidador.add(nomEspecie);
         System.out.println("Especie afegida correctament al cuidador.");
         return true;
     }
@@ -199,13 +199,13 @@ public class Cuidador {
      */
     public boolean eliminarEspecie(Especie nomEspecie) {
 
-        if (LlistatEspecies.isEmpty()) {
+        if (llistatEspeciesCuidador.isEmpty()) {
             System.out.println("Aquest cuidador no te cap especie.");
             return false;
         }
 
-        if (LlistatEspecies.contains(nomEspecie)) {
-            LlistatEspecies.remove(nomEspecie);
+        if (llistatEspeciesCuidador.contains(nomEspecie)) {
+            llistatEspeciesCuidador.remove(nomEspecie);
             System.out.println("Especie eliminada correctament del cuidador.");
             return true;
         } else {

@@ -19,7 +19,7 @@ public class Especie {
     /**
      * ID de la especie.
      */
-    private int id;
+    private int idEspecie;
     /**
      * Contador de les especies creades.
      */
@@ -27,40 +27,40 @@ public class Especie {
     /**
      * Nom comu de la especie.
      */
-    private String nomComu;
+    private String nomComuEspecie;
     /**
      * Nom cientific de la especie.
      */
-    private String nomCientific;
+    private String nomCientificEspecie;
     /**
      * Descripcio de la especie.
      */
-    private String descripcio;
+    private String descripcioEspecie;
     /**
      * Llista del aliments de la especie.
      */
-    private ArrayList<Aliment> LlistatAlimentEspecie;
+    private ArrayList<Aliment> llistatAlimentEspecie;
     /**
      * Llista dels cuidadors de la especie.
      */
-    private HashSet<Cuidador> LlistatCuidadorEspecie;
+    private HashSet<Cuidador> llistatCuidadorEspecie;
     /**
      * Llista dels espais de la especie.
      */
-    private HashSet<Espai> LlistatEspaisEspecie;
+    private HashSet<Espai> llistatEspaisEspecie;
 
     /**
      * Llista dels exemplars de la especie.
      */
-    private HashSet<Exemplar> LlistatExemplarsEspecie;
+    private HashSet<Exemplar> llistatExemplarsEspecie;
 
     /**
-     * Obtenim el valor assignat a l'atribut "id".
+     * Obtenim el valor assignat a l'atribut "idEspecie".
      *
      * @return codi d'idenfiticacio de l'especie.
      */
     public int getId() {
-        return id;
+        return idEspecie;
     }
 
     /**
@@ -69,43 +69,43 @@ public class Especie {
      * @return nom comu.
      */
     public String getNomComu() {
-        return nomComu;
+        return nomComuEspecie;
     }
 
     /**
-     * Assignam un valor a l'atribut "nomComu".
+     * Assignam un valor a l'atribut "nomComuEspecie".
      *
      * @param nomComu és el nom comú de l'especie.
      */
     public void setNomComu(String nomComu) {
-        this.nomComu = nomComu;
+        this.nomComuEspecie = nomComu;
     }
 
     /**
-     * Obtenim el valor assignat a l'atribut "nomCientific".
+     * Obtenim el valor assignat a l'atribut "nomCientificEspecie".
      *
      * @return nom científic.
      */
     public String getNomCientific() {
-        return nomCientific;
+        return nomCientificEspecie;
     }
 
     /**
-     * Assignam un valor a l'atribut "nomCientific".
+     * Assignam un valor a l'atribut "nomCientificEspecie".
      *
      * @param nomCientific és el nom científic de l'especie.
      */
     public void setNomCientific(String nomCientific) {
-        this.nomCientific = nomCientific;
+        this.nomCientificEspecie = nomCientific;
     }
 
     /**
-     * Obtenim el valor assignat a l'atribut "descripcio".
+     * Obtenim el valor assignat a l'atribut "descripcioEspecie".
      *
-     * @return breu descripcio de l'especie.
+     * @return breu descripcioEspecie de l'especie.
      */
     public String getDescripcio() {
-        return descripcio;
+        return descripcioEspecie;
     }
 
     /**
@@ -114,7 +114,7 @@ public class Especie {
      * @param descripcio és una breu descripció de l'especie.
      */
     public void setDescripcio(String descripcio) {
-        this.descripcio = descripcio;
+        this.descripcioEspecie = descripcio;
     }
 
     /**
@@ -123,7 +123,7 @@ public class Especie {
      * @return llista d'espais.
      */
     public HashSet<Espai> getLlistatEspais() {
-        return LlistatEspaisEspecie;
+        return llistatEspaisEspecie;
     }
 
     /**
@@ -132,7 +132,7 @@ public class Especie {
      * @return llista d'aliments.
      */
     public ArrayList<Aliment> getLlistatAliment() {
-        return LlistatAlimentEspecie;
+        return llistatAlimentEspecie;
     }
 
     /**
@@ -141,7 +141,7 @@ public class Especie {
      * @return llista de cuidadors.
      */
     public HashSet<Cuidador> getLlistatCuidador() {
-        return LlistatCuidadorEspecie;
+        return llistatCuidadorEspecie;
     }
 
     /**
@@ -150,27 +150,27 @@ public class Especie {
      * @return llista de exemplars.
      */
     public HashSet<Exemplar> getLlistatExemplars() {
-        return LlistatExemplarsEspecie;
+        return llistatExemplarsEspecie;
     }
 
     /**
-     * És el Constructor de Especie amb els parametres nomComu, nomCientific i
-     * descripcio. L'atribut id es inicialtizat amb el metode
-     * incrementarContadorEspecie. Inicialitzam totes les llistes de la classe.
+     * És el Constructor de Especie amb els parametres nomComuEspecie, nomCientificEspecie i
+ descripcioEspecie. L'atribut idEspecie es inicialtizat amb el metode
+ incrementarContadorEspecie. Inicialitzam totes les llistes de la classe.
      *
      * @param nomComu és el nom comú de l'especie.
      * @param nomCientific és el nom científic de l'especie.
      * @param descripcio és una breu descripció de l'especie.
      */
     public Especie(String nomComu, String nomCientific, String descripcio) {
-        this.id = Especie.incrementarContadorEspecie();
-        this.nomComu = nomComu;
-        this.nomCientific = nomCientific;
-        this.descripcio = descripcio;
-        LlistatAlimentEspecie = new ArrayList<>();
-        LlistatCuidadorEspecie = new HashSet<>();
-        LlistatEspaisEspecie = new HashSet<>();
-        LlistatExemplarsEspecie = new HashSet<>();
+        this.idEspecie = Especie.incrementarContadorEspecie();
+        this.nomComuEspecie = nomComu;
+        this.nomCientificEspecie = nomCientific;
+        this.descripcioEspecie = descripcio;
+        llistatAlimentEspecie = new ArrayList<>();
+        llistatCuidadorEspecie = new HashSet<>();
+        llistatEspaisEspecie = new HashSet<>();
+        llistatExemplarsEspecie = new HashSet<>();
     }
 
     /**
@@ -181,13 +181,13 @@ public class Especie {
      */
     @Override
     public String toString() {
-        return "Especie{" + "id=" + id + ", nomComu=" + nomComu + ", nomCientific=" + nomCientific + ", descripcio=" + descripcio + ", LlistatAliment=" + LlistatAlimentEspecie + ", LlistatCuidador=" + LlistatCuidadorEspecie + '}';
+        return "Especie{" + "id=" + idEspecie + ", nomComu=" + nomComuEspecie + ", nomCientific=" + nomCientificEspecie + ", descripcio=" + descripcioEspecie + ", LlistatAliment=" + llistatAlimentEspecie + ", LlistatCuidador=" + llistatCuidadorEspecie + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.nomCientific);
+        hash = 67 * hash + Objects.hashCode(this.nomCientificEspecie);
         return hash;
     }
 
@@ -200,7 +200,7 @@ public class Especie {
             return false;
         }
         final Especie other = (Especie) obj;
-        if (!Objects.equals(this.nomCientific, other.nomCientific)) {
+        if (!Objects.equals(this.nomCientificEspecie, other.nomCientificEspecie)) {
             return false;
         }
         return true;
@@ -229,7 +229,7 @@ public class Especie {
     public boolean afegirCuidadorEspecie(Zoologic nomZoologic, Cuidador nomCuidador) {
         if (nomZoologic.getLlistatEspecies().contains(Especie.this)) {
             if (nomZoologic.getLlistatCuidadors().contains(nomCuidador)) {
-                if (LlistatCuidadorEspecie.contains(nomCuidador)) {
+                if (llistatCuidadorEspecie.contains(nomCuidador)) {
                     System.out.println("Aquesta especie ja te aquest cuidador.");
                     return false;
                 }
@@ -241,7 +241,7 @@ public class Especie {
             System.out.println("Aquesta especie no esta al zoologic.");
             return false;
         }
-        LlistatCuidadorEspecie.add(nomCuidador);
+        llistatCuidadorEspecie.add(nomCuidador);
         System.out.println("Cuidador afegit correctament a la especie.");
         return true;
     }
@@ -255,12 +255,12 @@ public class Especie {
      */
     public boolean eliminarCuidadorEspecie(Cuidador nomCuidador) {
 
-        if (LlistatCuidadorEspecie.isEmpty()) {
+        if (llistatCuidadorEspecie.isEmpty()) {
             System.out.println("Aquesta especie no te cap cuidador.");
             return false;
         }
-        if (LlistatCuidadorEspecie.contains(nomCuidador)) {
-            LlistatCuidadorEspecie.remove(nomCuidador);
+        if (llistatCuidadorEspecie.contains(nomCuidador)) {
+            llistatCuidadorEspecie.remove(nomCuidador);
             System.out.println("Cuidador eliminat correctament de la especie.");
             return true;
         } else {
@@ -277,11 +277,11 @@ public class Especie {
      * llista.
      */
     public boolean afegirAlimentEspecie(Aliment nomAliment) {
-        if (LlistatAlimentEspecie.contains(nomAliment)) {
+        if (llistatAlimentEspecie.contains(nomAliment)) {
             System.out.println("Aquesta especie ja te aquest aliment.");
             return false;
         } else {
-            LlistatAlimentEspecie.add(nomAliment);
+            llistatAlimentEspecie.add(nomAliment);
             System.out.println("Aliment afegit correctament a la especie.");
             return true;
         }
@@ -296,12 +296,12 @@ public class Especie {
      * false si la especie no te aquest aliment.
      */
     public boolean eliminarAlimentEspecie(Aliment nomAliment) {
-        if (LlistatAlimentEspecie.isEmpty()) {
+        if (llistatAlimentEspecie.isEmpty()) {
             System.out.println("Aquesta especie no te cap aliment.");
             return false;
         }
-        if (LlistatAlimentEspecie.contains(nomAliment)) {
-            LlistatAlimentEspecie.remove(nomAliment);
+        if (llistatAlimentEspecie.contains(nomAliment)) {
+            llistatAlimentEspecie.remove(nomAliment);
             System.out.println("Aliment eliminat correctament de la especie.");
             return true;
         } else {
@@ -322,7 +322,7 @@ public class Especie {
     public boolean afegirEspaiEspecie(Zoologic nomZoologic, Espai nomEspai) {
         if (nomZoologic.getLlistatEspecies().contains(Especie.this)) {
             if (nomZoologic.getLlistatEspais().contains(nomEspai)) {
-                if (LlistatEspaisEspecie.contains(nomEspai)) {
+                if (llistatEspaisEspecie.contains(nomEspai)) {
                     System.out.println("Aquesta especie ja te aquest espai.");
                     return false;
                 }
@@ -334,7 +334,7 @@ public class Especie {
             System.out.println("Aquesta especie no esta al zoologic.");
             return false;
         }
-        LlistatEspaisEspecie.add(nomEspai);
+        llistatEspaisEspecie.add(nomEspai);
         System.out.println("Espai afegit correctament a la especie.");
         return true;
     }
@@ -347,12 +347,12 @@ public class Especie {
      * false si l'espai no esta en la llista.
      */
     public boolean eliminarEspaiEspecie(Espai nomEspai) {
-        if (LlistatEspaisEspecie.isEmpty()) {
+        if (llistatEspaisEspecie.isEmpty()) {
             System.out.println("Aquesta especie no te cap espai.");
             return false;
         }
-        if (LlistatEspaisEspecie.contains(nomEspai)) {
-            LlistatEspaisEspecie.remove(nomEspai);
+        if (llistatEspaisEspecie.contains(nomEspai)) {
+            llistatEspaisEspecie.remove(nomEspai);
             System.out.println("Espai eliminat correctmane de la especie.");
             return true;
         } else {
@@ -371,11 +371,11 @@ public class Especie {
      */
     public boolean afegirExemplarEspecie(Exemplar nomExemplar) {
 
-        if (LlistatExemplarsEspecie.contains(nomExemplar)) {
+        if (llistatExemplarsEspecie.contains(nomExemplar)) {
             System.out.println("Aquesta especie ja te aquest exemplar.");
             return false;
         } else {
-            LlistatExemplarsEspecie.add(nomExemplar);
+            llistatExemplarsEspecie.add(nomExemplar);
             System.out.println("Exemplar afegit correctament a la especie.");
             return true;
         }
@@ -390,12 +390,12 @@ public class Especie {
      * false si l'exemplar no esta en la llista.
      */
     public boolean eliminarExemplarEspecie(Exemplar nomExemplar) {
-        if (LlistatExemplarsEspecie.isEmpty()) {
+        if (llistatExemplarsEspecie.isEmpty()) {
             System.out.println("Aquesta especie no te cap exemplar.");
             return false;
         }
-        if (LlistatExemplarsEspecie.contains(nomExemplar)) {
-            LlistatExemplarsEspecie.remove(nomExemplar);
+        if (llistatExemplarsEspecie.contains(nomExemplar)) {
+            llistatExemplarsEspecie.remove(nomExemplar);
             System.out.println("Exemplar eliminat correctament de la especie.");
             return true;
         } else {
