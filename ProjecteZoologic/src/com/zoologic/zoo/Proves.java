@@ -29,11 +29,11 @@ public class Proves {
         /*CREAM UN ZOOLOGIC*/
         Zoologic marineland = new Zoologic("Marineland");
         /*CREAM CINC ESPAIS AMB UN REPETIT*/
-        Espai jaula1 = new Espai("Jaula Gorilas", TANCAT);
-        Espai jaula2 = new Espai("Jaula Jirafas", TANCAT);
-        Espai aquario1 = new Espai("Aquiario Orca", AQUARI);
-        Espai piscina1 = new Espai("Piscina Delfines", PISCINA);
-        Espai voladores1 = new Espai("Recinto Aves", VOLADOR);
+        Espai jaula1 = new Espai("Gabia Goril·les", TANCAT);
+        Espai jaula2 = new Espai("Gabia Girafes", TANCAT);
+        Espai aquario1 = new Espai("Aquiari Orca", AQUARI);
+        Espai piscina1 = new Espai("Piscina Delfins", PISCINA);
+        Espai voladores1 = new Espai("Recint Aus", VOLADOR);
         /*CREAM CUATRE CUIDADORS*/
         Cuidador toni = new Cuidador(43198690, "Toni");
         Cuidador xavi = new Cuidador(43198691, "Xavi");
@@ -41,11 +41,11 @@ public class Proves {
         Cuidador jesus = new Cuidador(43198693, "Jesus");
         Cuidador osvaldo = new Cuidador(43198694, "Osvaldo");
         /*CREAM CUATRE ESPECIES UNA PER ESPAI*/
-        Especie gorilas = new Especie("Gorilas", "Gorilas Maximus", "Son monos grandes.");
-        Especie girafas = new Especie("Girafas", "Girafas Maximus", "Son perros de cuello alto.");
-        Especie orcas = new Especie("Orcas", "Orcas Maximus", "Son peces gordos.");
-        Especie delfines = new Especie("Delfines", "Delfines Maximus", "Son peces con agujero.");
-        Especie aguilas = new Especie("Aguilas", "Aguilas Maximus", "Son pajaros grandes.");
+        Especie gorilas = new Especie("Goril·les", "Goril·les Maximus", "Son micos grans.");
+        Especie girafas = new Especie("Girafes", "Girafes Maximus", "Son gossos de coll llarg.");
+        Especie orcas = new Especie("Orques", "Orques Maximus", "Son peixos grossos.");
+        Especie delfines = new Especie("Delfins", "Delfins Maximus", "Son peixos amb forat.");
+        Especie aguilas = new Especie("Aguiles", "Aguiles Maximus", "Son ocells grans.");
         /*CREAM ELS ALIMENTS DE LES ESPECEIES, UN PER ESPECIE*/
         Aliment platano = new Aliment(1, "Platano");
         Aliment arandanos = new Aliment(2, "Arandano");
@@ -75,22 +75,22 @@ public class Proves {
         Aliment hamster = new Aliment(14, "Hamster");
         Aliment conejo = new Aliment(15, "Conejo");
         /*CREAM LES TASQUES, DUES PER CUIDADOR*/
-        Tasca tarea1 = new Tasca("Limpiar jaula gorilas.");
-        Tasca tarea2 = new Tasca("Dar de comer a las aguilas.");
-        Tasca tarea3 = new Tasca("Dar de comer a las girafas.");
-        Tasca tarea4 = new Tasca("Llevar a Piesito al veterinario.");
-        Tasca tarea5 = new Tasca("Limpiar aquario.");
-        Tasca tarea6 = new Tasca("Recoger sardinas del almacen.");
+        Tasca tarea1 = new Tasca("Netejar gàbia goril·les.");
+        Tasca tarea2 = new Tasca("Donar de menjar a les àguiles.");
+        Tasca tarea3 = new Tasca("Donar de menjar a les girafes.");
+        Tasca tarea4 = new Tasca("Dur a Piesito al veterinari.");
+        Tasca tarea5 = new Tasca("Netejar aquari.");
+        Tasca tarea6 = new Tasca("Recollir sardines del magatzem.");
         Tasca tarea7 = new Tasca("Entrenar a fliper.");
-        Tasca tarea8 = new Tasca("Dar de comer a los delfines.");
-        Tasca tarea9 = new Tasca("Hacer demostracion con Black Eagle.");
-        Tasca tarea10 = new Tasca("Dar de comer a las aguilas.");
+        Tasca tarea8 = new Tasca("Donar de menjar als dofins.");
+        Tasca tarea9 = new Tasca("Fer demostracio amb Black Eagle.");
+        Tasca tarea10 = new Tasca("Donar de menjar a les àguiles.");
         /*CREAM UNA OBSERVACIO PER TASCA*/
-        tarea2.afegirObservacions("Dar medicamento a Chita.");
-        tarea4.afegirObservacions("Recoger receta de Piesito.");
-        tarea6.afegirObservacions("Hacer inventario de comida.");
+        tarea2.afegirObservacions("Donar medicament a Chita.");
+        tarea4.afegirObservacions("Recollir recepta de Piesito.");
+        tarea6.afegirObservacions("Fer inventari de comida.");
         tarea7.afegirObservacions("Observar aleta de Fliper.");
-        tarea9.afegirObservacions("Devolver a Black Eagle al recinto.");
+        tarea9.afegirObservacions("Retornar a Black Eagle al recinte.");
 
         /*CRIDAM A TOTS ELS METODES*/
         /*AFEIM ESPAIS AL ZOOLOGIC*/
