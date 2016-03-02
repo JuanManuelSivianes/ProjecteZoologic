@@ -10,7 +10,7 @@ import java.util.Iterator;
 /**
  * Classe que conte tota la informacio dels cuidadors.
  *
- * @author Sivi,Xavier,Jesus,Toni
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Cuidador {
 

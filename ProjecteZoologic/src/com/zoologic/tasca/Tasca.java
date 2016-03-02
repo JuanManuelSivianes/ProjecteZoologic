@@ -8,7 +8,7 @@ package com.zoologic.tasca;
 /**
  * Classe que conte tota la informacio de les tasques.
  *
- * @author Sivi,Xavier,Jesus,Toni
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Tasca {
 
@@ -78,6 +78,12 @@ public class Tasca {
         return "Tasca{" + "descripcio=" + descripcio + ", observacions=" + observacions + '}';
     }
 
+    /**
+     * Métode que afegeix una cadena a la variable observacions de la tasca.
+     *
+     * @param observacio és la cadena que afegim.
+     * @return true si la afegit i false si no.
+     */
     public boolean afegirObservacions(String observacio) {
 
         Tasca.this.setObservacions(observacio);
@@ -85,6 +91,12 @@ public class Tasca {
         return true;
     }
 
+    /**
+     * Métode que elimina una cadena de la variable observacions de la tasca.
+     *
+     * @param observacion és la cadena que eliminam.
+     * @return true si la pogut eliminar i false si no.
+     */
     public boolean eliminarObservacions(String observacion) {
         if (Tasca.this.getObservacions() == null) {
             System.out.println("Aquesta tasca no te observacions.");

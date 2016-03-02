@@ -15,10 +15,16 @@ import com.zoologic.tasca.Tasca;
 
 /**
  *
- * @author Arsenik
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Proves {
 
+    /**
+     * Métode que inicialitza tot el zoologic. Crea: 1 zoologic, 5 espais, 4
+     * cuidadors, 4 especies, 2 especies per exemplar, 1 aliment per especie, 2
+     * aliments per exemplar i 2 tasques per cuidador.
+     *
+     */
     public void inicialitzacioZoologic() {
         /*CREAM UN ZOOLOGIC*/
         Zoologic marineland = new Zoologic("Marineland");

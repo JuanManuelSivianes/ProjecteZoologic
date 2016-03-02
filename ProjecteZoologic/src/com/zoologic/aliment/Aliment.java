@@ -3,13 +3,23 @@ package com.zoologic.aliment;
 import java.util.ArrayDeque;
 
 /**
+ * Classe conte tota la informacio dels aliments.
  *
- * @author Sivi, Jesus, Xavier, Toni
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Aliment {
 
+    /**
+     * És la id de l'aliment.
+     */
     private int id;
+    /**
+     * És el nom de l'aliment.
+     */
     private String nom;
+    /**
+     * És la llista que conté la preparació de l'aliment.
+     */
     private ArrayDeque<String> preparacio;
 
     /**
@@ -89,6 +99,12 @@ public class Aliment {
         return "Aliment{" + "id=" + id + ", nom=" + nom + ", preparacio=" + preparacio + '}';
     }
 
+    /**
+     * Aquest métode afegeix una cadena a l'ArrayList preparacio.
+     *
+     * @param pas és la cadena que afegim a la llista.
+     * @return true si la pogut afegir i false si no.
+     */
     public boolean afegirPreparacio(String pas) {
         if (preparacio.contains(pas)) {
             return false;
@@ -98,6 +114,12 @@ public class Aliment {
         }
     }
 
+    /**
+     * Aquest métode elimina una cadena de l'ArrayList preparacio.
+     *
+     * @param pas és la cadena que eliminam de la llista.
+     * @return true si la pogut eliminar i false si no.
+     */
     public boolean eliminarPreparacio(String pas) {
         if (preparacio.remove(pas)) {
             return true;

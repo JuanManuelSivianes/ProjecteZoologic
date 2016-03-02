@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * Classe que conte tota la informacio de cada especie.
  *
- * @author Sivi, Jesus, Toni, Xavier.
+ * @author Sivi, Xavier, Jesus, Toni
  */
 public class Especie {
 
